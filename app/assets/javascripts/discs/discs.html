@@ -1,5 +1,8 @@
-<h3 ng-if="!!currentUser.username">My name is {{ currentUser.username }}</h3>
+<h3 ng-if="!!currentUser.username">Logged in as {{ currentUser.username }}</h3>
+<br><br>
 
-<p>Show: <a href="#" ui-sref="discs.allDiscs">All Discs</a> <a href="#" ui-sref="discs.myBag">My Discs</a></p>
+<p ng-if="!!currentUser">Since we're logged in...</p>
+<p ng-if="!currentUser">Since we're NOT logged in...</p>
+<p>Show: <a href="#" ui-sref="discs.allDiscs">All Discs</a> | <a href="#" ui-sref="discs.myBag">My Discs</a></p>
 
 <ui-view></ui-view>
