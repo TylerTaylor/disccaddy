@@ -29,7 +29,8 @@
         .state('users', {
           abstract: true,
           url: '/users',
-          templateUrl: 'users/users.html'
+          templateUrl: 'users/users.html',
+          controller: 'UsersController as vm'
         })
         .state('users.signIn', {
           url: '/users/signin',
