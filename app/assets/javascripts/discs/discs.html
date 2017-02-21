@@ -10,6 +10,11 @@
 <!-- if a user is not logged in -->
 <p ng-if="!currentUser">Since we're NOT logged in...</p>
 
-<p>Show: <a href="#" ui-sref="discs.allDiscs">All Discs</a> | <a href="#" ui-sref="discs.myBag">My Discs</a></p>
+<p>
+  Show: 
+  <a href="#" ui-sref="discs.allDiscs">All Discs</a> | 
+  <a ng-if="!!currentUser" href="#" ui-sref="discs.myBag">My Discs</a>
+</p>
 
+<!-- display the nested views for discs here -->
 <ui-view></ui-view>
