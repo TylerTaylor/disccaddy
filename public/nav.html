@@ -19,7 +19,8 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ng-if="!!currentUser"><a href="">Logged in as: {{ currentUser.username }}</a></li>
-        <li><a ng-click="vm.logout()">Log out</a></li>
+        <li><a ng-click="vm.clicked()">Log out</a></li>
+        <li ng-if="!!currentUser"><a href="#">{{ vm.tester }}</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
