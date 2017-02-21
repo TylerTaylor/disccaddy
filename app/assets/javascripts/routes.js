@@ -26,6 +26,15 @@
           templateUrl: 'discs/all_discs.html',
           controller: 'DiscsController as vm'
         })
+        .state('users', {
+          abstract: true,
+          url: '/users',
+          templateUrl: 'users/users.html'
+        })
+        .state('users.signIn', {
+          url: '/users/signin',
+          templateUrl: 'users/sign_in.html'
+        })
 
       $urlRouterProvider.otherwise('/')
     })
