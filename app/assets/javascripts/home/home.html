@@ -6,7 +6,7 @@
 <button ng-if="!!currentUser.username" ng-click="vm.logout()" class="btn btn-primary">Logout</button>
 
 <!-- sign in form -->
-<form ng-if="!currentUser.username" ng-submit="vm.login()">
+<!-- <form ng-if="!currentUser.username" ng-submit="vm.login()">
   <label for="username">Username</label>
   <input type="text" ng-model="vm.userForm.username"> <br>
   <label for="email">Email</label>
@@ -14,10 +14,10 @@
   <label for="password">Password</label>
   <input type="password" ng-model="vm.userForm.password"> <br>
   <input type="submit" value="login">
-</form>
+</form> -->
 
 <!-- registration form -->
-<form ng-if="!currentUser.username" ng-submit="vm.register()">
+<!-- <form ng-if="!currentUser.username" ng-submit="vm.register()">
   <label for="username">Username</label>
   <input type="text" ng-model="vm.newUser.username"> <br>
   <label for="email">Email</label>
@@ -25,4 +25,4 @@
   <label for="password">Password</label>
   <input type="password" ng-model="vm.newUser.password"> <br>
   <input type="submit" value="register">
-</form>
+</form> -->

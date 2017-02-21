@@ -33,8 +33,12 @@
           controller: 'UsersController as vm'
         })
         .state('users.signIn', {
-          url: '/users/signin',
+          url: '/signin',
           templateUrl: 'users/sign_in.html'
+        })
+        .state('users.register', {
+          url: '/register',
+          templateUrl: 'users/register.html'
         })
 
       $urlRouterProvider.otherwise('/')
