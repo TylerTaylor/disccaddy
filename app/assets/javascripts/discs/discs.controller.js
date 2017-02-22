@@ -24,7 +24,7 @@
 
       function myLogout() {
         Auth.logout()
-        $location.path('/').replace()
+        // $location.path('/').replace()
         $state.reload()
 
       }

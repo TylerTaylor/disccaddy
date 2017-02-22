@@ -5,3 +5,35 @@ body {
 a[ng-click]{
   cursor: pointer;
 }
+
+/*.user-form {
+  text-align: center;
+}*/
+
+/*form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+form h1 {
+  text-align: center;
+}
+
+label, input {
+  display: inline-block;
+}
+
+label {
+  width: 30%;
+  text-align: right;
+}*/
+
+.flexer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.flexer-item {
+  max-width: 80%;
+}
