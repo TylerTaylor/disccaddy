@@ -4,7 +4,7 @@
   var Navi = {
     templateUrl: '/assets/components/navi.html',
     controller: 'UsersController',
-    controllerAs: 'vm'
+    controllerAs: 'users'
   }
 
   angular

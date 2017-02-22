@@ -10,6 +10,8 @@
       var vm = this
       // vm.logout = Auth.logout
       vm.logout = myLogout
+      vm.thisisdiscscontroller = thisisdiscscontroller
+
 
       console.log("Location:")
       console.log($location)
@@ -22,10 +24,18 @@
           console.log(error)
         })
 
+      function thisisdiscscontroller() {
+        console.log("This is the discs controller")
+        console.log("The current user is: ")
+        console.log($rootScope.currentUser)
+      }
+
+      thisisdiscscontroller()
+      
       function myLogout() {
         Auth.logout()
-        // $location.path('/').replace()
-        $state.reload()
+        $location.path('/').replace()
+        // $state.reload()
 
       }
     }

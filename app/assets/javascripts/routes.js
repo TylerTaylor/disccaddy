@@ -34,7 +34,13 @@
         })
         .state('users.signIn', {
           url: '/signin',
-          templateUrl: 'users/sign_in.html'
+          templateUrl: 'users/sign_in.html',
+          onEnter: ['$state', 'Auth', function($state, Auth) {
+            Auth.currentUser().then(function (){
+              console.log("Redirecting because I'm logged in already!")
+              $state.go('home');
+            })
+          }]
         })
         .state('users.register', {
           url: '/register',

@@ -13,10 +13,13 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- left side of nav -->
       <ul class="nav navbar-nav">
         <li><a href="#" ui-sref="discs">Discs</a></li>
         <li><a href="#">Link</a></li>
       </ul>
+
+
       <ul class="nav navbar-nav navbar-right">
         <li ng-if="!!currentUser.username">
           <a href="">Logged in as: {{ currentUser.username }} </a>
@@ -24,7 +27,7 @@
         <li ng-if="!!currentUser.username">
           <a href ng-click="vm.logout()">Log Out</a>
         </li>
-        <li ng-if="!currentUser">
+        <li ng-if="!currentUser.username">
           <a href="#" ui-sref="users.signIn">Sign In</a>
         </li>
       </ul> <!-- /.navbar-right -->

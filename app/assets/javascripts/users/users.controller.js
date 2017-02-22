@@ -11,15 +11,19 @@
       vm.login = login
       vm.logout = Auth.logout
       vm.register = register
-      vm.broccoli = broc
+      vm.thisisuserscontroller = thisisuserscontroller
 
-      function broc() {
-        debugger
+      function thisisuserscontroller() {
+        console.log('This is the users controller')
       }
+
+      thisisuserscontroller()
 
       Auth.currentUser()
         .then(function(user) {
           $rootScope.currentUser = user
+          console.log("The current user is: ")
+          console.log($rootScope.currentUser)
         }, function(error) {
           console.log(error)
         })
