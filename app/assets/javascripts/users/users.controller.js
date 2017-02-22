@@ -6,7 +6,7 @@
     .module('discCaddy')
     .controller('UsersController', UsersController)
 
-    function UsersController(Auth, $rootScope) {
+    function UsersController(Auth, $rootScope, $state) {
       var vm = this
       vm.login = login
       vm.logout = Auth.logout
@@ -38,6 +38,8 @@
         Auth.login(vm.userForm, config)
           .then(function(user) {
             $rootScope.currentUser = user
+            console.log("Just successfully signed in via users controller, now redirecting")
+            $state.go('home')
           }, function(error) {
             console.log(error)
           })

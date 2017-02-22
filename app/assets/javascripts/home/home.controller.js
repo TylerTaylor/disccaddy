@@ -9,7 +9,13 @@
     function HomeController(Auth, $rootScope) {
       var vm = this
     //   vm.login = login
-    //   vm.logout = Auth.logout
+      vm.logout = myLogout
+
+      function myLogout() {
+        console.log("logging out via myLogout function in the home controller...")
+        Auth.logout()
+      }
+
     //   vm.register = register
     //   vm.thisishomecontroller = thisishomecontroller
 
