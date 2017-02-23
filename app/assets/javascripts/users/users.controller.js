@@ -6,11 +6,16 @@
     .module('discCaddy')
     .controller('UsersController', UsersController)
 
-    function UsersController(Auth, $rootScope, $state) {
+    function UsersController(Auth, $rootScope, $state, $scope) {
       var vm = this
       vm.login = login
       vm.logout = Auth.logout
       vm.register = register
+      
+      $scope.signedIn = Auth.isAuthenticated
+      $scope.logout = Auth.logout
+
+
       vm.thisisuserscontroller = thisisuserscontroller
 
       function thisisuserscontroller() {

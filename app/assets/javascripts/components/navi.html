@@ -20,7 +20,7 @@
 
       <!-- right side of nav -->
       <ul class="nav navbar-nav navbar-right">
-        <li ng-if="!!currentUser.username">
+        <!-- <li ng-if="!!currentUser.username">
           <a href="">Logged in as: {{ currentUser.username }} </a>
         </li>
         <li ng-if="!!currentUser.username">
@@ -28,7 +28,10 @@
         </li>
         <li ng-if="!currentUser.username">
           <a href="#" ui-sref="users.signIn">Sign In</a>
-        </li>
+        </li> -->
+        <li ng-hide="signedIn()"><a ui-sref="users.signIn">Login</a></li>
+        <li ng-hide="signedIn()"><a ui-sref="users.register">Register</a></li>
+        <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
       </ul> <!-- /.navbar-right -->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
