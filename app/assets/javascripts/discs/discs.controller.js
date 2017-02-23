@@ -10,8 +10,6 @@
       var vm = this
       // vm.logout = Auth.logout
       vm.logout = myLogout
-      vm.thisisdiscscontroller = thisisdiscscontroller
-
 
       console.log("Location:")
       console.log($location)
@@ -23,14 +21,6 @@
         }, function(error) {
           console.log(error)
         })
-
-      function thisisdiscscontroller() {
-        console.log("This is the discs controller")
-        console.log("The current user is: ")
-        console.log($rootScope.currentUser)
-      }
-
-      // thisisdiscscontroller()
       
       function myLogout() {
         Auth.logout()

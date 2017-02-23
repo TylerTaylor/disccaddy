@@ -11,22 +11,15 @@
       vm.login = login
       vm.logout = Auth.logout
       vm.register = register
+      vm.username = {}
       
       $scope.signedIn = Auth.isAuthenticated
       $scope.logout = Auth.logout
 
-
-      vm.thisisuserscontroller = thisisuserscontroller
-
-      function thisisuserscontroller() {
-        console.log('This is the users controller')
-      }
-
-      // thisisuserscontroller()
-
       Auth.currentUser()
         .then(function(user) {
           $rootScope.currentUser = user
+          vm.username = user.username
           console.log('This is the users controller')
           console.log("The current user is: ")
           console.log($rootScope.currentUser)
