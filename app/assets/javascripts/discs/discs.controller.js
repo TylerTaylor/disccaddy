@@ -30,7 +30,7 @@
         console.log($rootScope.currentUser)
       }
 
-      thisisdiscscontroller()
+      // thisisdiscscontroller()
       
       function myLogout() {
         Auth.logout()
