@@ -20,9 +20,6 @@
         .then(function(user) {
           $rootScope.currentUser = user
           vm.username = user.username
-          console.log('This is the users controller')
-          console.log("The current user is: ")
-          console.log($rootScope.currentUser)
         }, function(error) {
           console.log(error)
         })

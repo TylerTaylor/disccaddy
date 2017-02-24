@@ -19,6 +19,9 @@ namespace :scraper do
       doc = Nokogiri::HTML(open(link))
 
       desc = doc.css('#tab-description').text
+      weights = doc.at_css('.input-block-level').text
+      low = weights.scan(/\d/)[0,3].join.to_i
+      high = weights.last(3).to_i
 
       # Disc.create(name: name, description: desc, disc_type: type)
       binding.pry
@@ -83,7 +86,7 @@ namespace :scraper do
       doc = Nokogiri::HTML(open(link))
 
       desc = doc.css('#tab-description').text
-      
+
       binding.pry
     end
   end
