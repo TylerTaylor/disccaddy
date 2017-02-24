@@ -13,9 +13,15 @@ namespace :scraper do
 
     discs.each do |disc|
       name = disc.css('.lead').text
-      desc = disc.css('.description').text
       type = 'distance driver'
+      link = disc.css('.lead').at('a').attributes['href'].value
+
+      doc = Nokogiri::HTML(open(link))
+
+      desc = doc.css('#tab-description').text
+
       # Disc.create(name: name, description: desc, disc_type: type)
+      binding.pry
     end
   end
 
@@ -29,8 +35,13 @@ namespace :scraper do
 
     discs.each do |disc|
       name = disc.css('.lead').text
-      desc = disc.css('.description').text
       type = 'fairway driver'
+      link = disc.css('.lead').at('a').attributes['href'].value
+
+      doc = Nokogiri::HTML(open(link))
+
+      desc = doc.css('#tab-description').text
+
       binding.pry
     end
   end
@@ -45,8 +56,13 @@ namespace :scraper do
 
     discs.each do |disc|
       name = disc.css('.lead').text
-      desc = disc.css('.description').text
       type = 'mid range'
+      link = disc.css('.lead').at('a').attributes['href'].value
+
+      doc = Nokogiri::HTML(open(link))
+
+      desc = doc.css('#tab-description').text
+
       binding.pry
     end
   end
@@ -61,8 +77,13 @@ namespace :scraper do
 
     discs.each do |disc|
       name = disc.css('.lead').text
-      desc = disc.css('.description').text
       type = 'putter approach'
+      link = disc.css('.lead').at('a').attributes['href'].value
+
+      doc = Nokogiri::HTML(open(link))
+
+      desc = doc.css('#tab-description').text
+      
       binding.pry
     end
   end
