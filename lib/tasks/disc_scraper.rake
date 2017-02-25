@@ -16,6 +16,7 @@ namespace :scraper do
       type = 'distance driver'
       link = disc.css('.lead').at('a').attributes['href'].value
       thumbnail_url = disc.css('.media-object').first.attributes['src'].value
+
       
       doc = Nokogiri::HTML(open(link))
 
@@ -23,6 +24,11 @@ namespace :scraper do
       weights = doc.at_css('.input-block-level').text
       low = weights.scan(/\d/)[0,3].join.to_i
       high = weights.last(3).to_i
+
+      # The image has two size options, 280x280 and 500x500
+      # could make a method to grab both sizes.
+      # Will use 280x280 for now
+      image_url = doc.css('#image').first.attributes['src'].value
 
       # Disc.create(name: name, description: desc, disc_type: type)
       binding.pry

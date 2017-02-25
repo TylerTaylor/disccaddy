@@ -18,10 +18,15 @@ namespace :get_images do
     end
 
     discs.each do |disc|
-      open(disc.thumbnail_url) do |u|
-        disc.thumbnail = u.read
-        disc.save
+      open(disc.thumbnail_url) do |img|
+        disc.thumbnail = img.read
       end
+
+      open(disc.image_url) do |img|
+        disc.image = img.read
+      end
+
+      binding.pry
     end
 
     # download_image(url, url.split('/').last, dir)
