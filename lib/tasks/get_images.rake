@@ -19,11 +19,11 @@ namespace :get_images do
 
     discs.each do |disc|
       open(disc.thumbnail_url) do |img|
-        disc.thumbnail = img.read
+        disc.thumbnail = Base64.encode64(img.read)
       end
 
       open(disc.image_url) do |img|
-        disc.image = img.read
+        disc.image = Base64.encode64(img.read)
       end
 
       binding.pry

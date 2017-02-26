@@ -30,7 +30,15 @@ namespace :scraper do
       # Will use 280x280 for now
       image_url = doc.css('#image').first.attributes['src'].value
 
-      # Disc.create(name: name, description: desc, disc_type: type)
+      Disc.create(
+        name: name, 
+        description: desc, 
+        disc_type: type,
+        thumbnail_url: thumbnail_url,
+        image_url: image_url,
+        low_weight: low,
+        high_weight: high
+      )
       binding.pry
     end
   end
