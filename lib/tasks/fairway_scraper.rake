@@ -21,11 +21,11 @@ namespace :scraper do
         thumbnail_url = disc.css('.media-object').first.attributes['src'].value
       end
 
-      doc = Nokogiri::HTML(open(encoded_link))
+      doc = Nokogiri::HTML(open(URI.parse(encoded_link)))
 
       desc = doc.css('#tab-description').text
       if doc.at_css('.input-block-level')
-        weights = doc.at_css('.input-block-level').text
+        weights = doc.at_css('.input-block-level').text || nil
         low = weights.scan(/\d/)[0,3].join.to_i
         high = weights.last(3).to_i
       end
@@ -33,7 +33,9 @@ namespace :scraper do
       # The image has two size options, 280x280 and 500x500
       # could make a method to grab both sizes.
       # Will use 280x280 for now
-      image_url = doc.css('#image').first.attributes['src'].value
+      if doc.css('#image').first
+        image_url = doc.css('#image').first.attributes['src'].value
+      end
 
       Disc.create(
         name: name, 
