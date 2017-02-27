@@ -46,7 +46,6 @@ namespace :scraper do
         low_weight: low,
         high_weight: high
       )
-      # binding.pry
     end
   end
 

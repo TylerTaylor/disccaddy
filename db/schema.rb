@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225175217) do
+ActiveRecord::Schema.define(version: 20170227051546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,7 @@ ActiveRecord::Schema.define(version: 20170225175217) do
     t.integer  "low_weight"
     t.integer  "high_weight"
     t.string   "thumbnail_url"
-    t.binary   "thumbnail"
     t.string   "image_url"
-    t.binary   "image"
   end
 
   create_table "users", force: :cascade do |t|
