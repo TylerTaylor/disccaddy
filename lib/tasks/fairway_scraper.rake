@@ -15,14 +15,20 @@ namespace :scraper do
       name = disc.css('.lead').text
       type = 'fairway driver'
       link = disc.css('.lead').at('a').attributes['href'].value
-      thumbnail_url = disc.css('.media-object').first.attributes['src'].value
+      encoded_link = URI.encode(link)
 
-      doc = Nokogiri::HTML(open(link))
+      if disc.css('.media-object').first
+        thumbnail_url = disc.css('.media-object').first.attributes['src'].value
+      end
+
+      doc = Nokogiri::HTML(open(encoded_link))
 
       desc = doc.css('#tab-description').text
-      weights = doc.at_css('.input-block-level').text
-      low = weights.scan(/\d/)[0,3].join.to_i
-      high = weights.last(3).to_i
+      if doc.at_css('.input-block-level')
+        weights = doc.at_css('.input-block-level').text
+        low = weights.scan(/\d/)[0,3].join.to_i
+        high = weights.last(3).to_i
+      end
 
       # The image has two size options, 280x280 and 500x500
       # could make a method to grab both sizes.
@@ -38,7 +44,7 @@ namespace :scraper do
         low_weight: low,
         high_weight: high
       )
-      binding.pry
+      # binding.pry
     end
   end
 
