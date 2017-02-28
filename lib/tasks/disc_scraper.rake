@@ -19,8 +19,8 @@ namespace :scraper do
   #   log.close
   # end
 
-  desc 'Try to refactor scraping methods'
-  task scraperef: :environment do
+  desc 'Scrape all discs'
+  task scrape: :environment do
     urls = {
       'distance': 'https://discsunlimited.net/disc-types/distance-drivers?limit=600',
       'fairway': 'https://discsunlimited.net/disc-types/fairway-drivers?limit=200',
@@ -32,7 +32,7 @@ namespace :scraper do
       doc = Nokogiri::HTML(open(url))
 
       discs = doc.css('.media')
-      discs.shift
+      discs.shift # pops off the description paragraph at the top
 
       discs.each do |disc|
         name = disc.css('.lead').text
@@ -75,9 +75,11 @@ namespace :scraper do
     log = ActiveSupport::Logger.new('log/scraper.log')
     start_time = Time.now
 
-    urls.each do |disc_type, url|
-      scrape_discs(disc_type.to_s, url)
-    end
+    # urls.each do |disc_type, url|
+    #   scrape_discs(disc_type.to_s, url)
+    # end
+
+    scrape_discs("distance", 'https://discsunlimited.net/disc-types/distance-drivers?limit=600')
 
     end_time = Time.now
     duration = end_time - start_time
