@@ -7,5 +7,11 @@ class DiscsController < ApplicationController
     render json: @discs    
   end
 
+  def show
+    @disc = Disc.find(params[:id])
+
+    render json: @disc
+  end
+
 end
 
