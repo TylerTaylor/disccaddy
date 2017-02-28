@@ -30,7 +30,7 @@ namespace :get_images do
       return url
     end
 
-    def get_images(discs)
+    def get_thumbnails(discs)
       dir = 'app/assets/images'
 
       discs.each do |disc|
@@ -49,17 +49,40 @@ namespace :get_images do
       end
     end
 
+    def get_images(discs)
+      dir = 'app/assets/images'
+
+      discs.each do |disc|
+        if disc.image_url
+          begin
+            link = URI.encode(disc.image_url)
+
+            download_image(URI.parse(link), disc.image_url.split('/').last, dir)
+
+            disc.image_url = get_img_url(disc.image_url)
+            disc.save
+          rescue URI::InvalidURIError => e
+            puts "error: #{e}"
+          end
+        end
+      end
+    end
+
     log.info "Getting images for distance"
     get_images(distance)
+    # get_thumbnails(distance)
 
     log.info "Getting images for fairway"
     get_images(fairway)
+    # get_thumbnails(fairway)
 
     log.info "Getting images for midrange"
     get_images(midrange)
+    # get_thumbnails(midrange)
 
     log.info "Getting images for putter"
     get_images(putter)
+    # get_thumbnails(putter)
 
     end_time = Time.now
     duration = end_time - start_time
