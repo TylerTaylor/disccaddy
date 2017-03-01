@@ -3,14 +3,14 @@
 <div class="discs-list">
   <input ng-model="vm.search" ng-change="vm.refilter()"/>
   <ul>
-    <li ng-repeat="disc in vm.filteredList">
+    <li ng-repeat="disc in vm.filteredList | limitTo:30:30*(vm.page-1)">
       {{ disc.name }}
     </li>
   </ul>
   
 </div>
 
-<div>
+<!-- <div>
   <ul class="pagination">
     <li ng-if="vm.page > 0">
       <a href="" ng-click="vm.previousPage()">
@@ -23,4 +23,13 @@
       </a>
     </li>
   </ul>
-</div>
+</div> -->
+
+<uib-pagination class="pagination-sm pagination" 
+                total-items="vm.filteredList.length" 
+                ng-model="vm.page"
+                ng-change="vm.pageChanged()" 
+                previous-text="&lsaquo;" 
+                next-text="&rsaquo;" 
+                items-per-page=30>
+</uib-pagination>
