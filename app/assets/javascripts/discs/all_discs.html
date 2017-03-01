@@ -3,9 +3,24 @@
 <div class="discs-list">
   <input ng-model="vm.search" ng-change="vm.refilter()"/>
   <ul>
-    <li ng-repeat="disc in vm.filteredList">
+    <li ng-repeat="disc in vm.discs">
       {{ disc.name }}
     </li>
   </ul>
   
+</div>
+
+<div>
+  <ul class="pagination">
+    <li ng-if="vm.page > 0">
+      <a href="" ng-click="vm.previousPage()">
+        << Previous
+      </a>
+    </li>
+    <li ng-if="vm.page < vm.totalPages - 1">
+      <a href="" ng-click="vm.nextPage()">
+        Next >>
+      </a>
+    </li>
+  </ul>
 </div>
