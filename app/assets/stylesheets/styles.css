@@ -6,6 +6,15 @@ a[ng-click]{
   cursor: pointer;
 }
 
+ul {
+  list-style: none;
+}
+
+.discs-list {
+  margin: 0 auto;
+  width: 100%;
+}
+
 /*.user-form {
   text-align: center;
 }*/

@@ -4,9 +4,9 @@
 
   angular
     .module('discCaddy')
-    .controller('DiscsController', ['Auth', '$rootScope', '$location', '$state', 'DiscFactory', '$filter', 'discs', DiscsController])
+    .controller('DiscsController', ['Auth', '$rootScope', '$location', '$scope', 'DiscFactory', '$filter', 'discs', DiscsController])
 
-    function DiscsController(Auth, $rootScope, $location, $state, DiscFactory, $filter, discs) {
+    function DiscsController(Auth, $rootScope, $location, $scope, DiscFactory, $filter, discs) {
       var vm = this
       vm.discs = discs
       // var DISCS_PER_PAGE = 30
@@ -39,7 +39,7 @@
       vm.pageChanged = function() {
         var startPos = (vm.page) * 30;
         //$scope.displayItems = $scope.totalItems.slice(startPos, startPos + 3);
-        console.log($scope.page);
+        console.log(vm.page);
       };
 
       // vm.paginateDiscs()

@@ -2,8 +2,15 @@
 
 <div class="discs-list">
   <input ng-model="vm.search" ng-change="vm.refilter()"/>
+  <p>
+    Filter by: 
+    <a href ng-click="typeFilter={disc_type: 'distance'}">Distance</a> |
+    <a href ng-click="typeFilter={disc_type: 'fairway'}">Fairway</a> |
+    <a href ng-click="typeFilter={disc_type: 'midrange'}">Midrange</a> |
+    <a href ng-click="typeFilter={disc_type: 'putter'}">Putters</a>
+  </p>
   <ul>
-    <li ng-repeat="disc in vm.filteredList | limitTo:30:30*(vm.page-1)">
+    <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:25:25*(vm.page-1)">
       {{ disc.name }}
     </li>
   </ul>
