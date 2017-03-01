@@ -28,8 +28,11 @@
 <uib-pagination class="pagination-sm pagination" 
                 total-items="vm.filteredList.length" 
                 ng-model="vm.page"
-                ng-change="vm.pageChanged()" 
-                previous-text="&lsaquo;" 
-                next-text="&rsaquo;" 
+                ng-change="vm.pageChanged()"
+                max-size='5' 
+                previous-text="&lsaquo; Prev" 
+                next-text="Next &rsaquo;"
+                rotate='true'
+                boundary-links='true' 
                 items-per-page=30>
 </uib-pagination>
