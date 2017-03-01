@@ -4,30 +4,29 @@
 
   angular
     .module('discCaddy')
-    .controller('DiscsController', ['Auth', '$rootScope', '$location', '$state', DiscsController])
+    .controller('DiscsController', ['Auth', '$rootScope', '$location', '$state', 'DiscFactory', '$filter',DiscsController])
 
-    function DiscsController(Auth, $rootScope, $location, $state) {
+    function DiscsController(Auth, $rootScope, $location, $state, DiscFactory, $filter, discs) {
       var vm = this
-      // vm.logout = Auth.logout
-      vm.logout = myLogout
 
-      console.log("Location:")
-      console.log($location)
-      console.log(" ")
+      vm.discs = []
 
-      Auth.currentUser()
-        .then(function(user) {
-          $rootScope.currentUser = user
-        }, function(error) {
-          console.log(error)
-        })
-      
-      function myLogout() {
-        Auth.logout()
-        $location.path('/').replace()
-        // $state.reload()
+      DiscFactory.getDiscs()
+                 .then(setDiscs)
 
+      function setDiscs(data) {
+        vm.discs = data
+        vm.refilter()
       }
+
+      vm.search = ''
+
+      vm.refilter = function () {
+        vm.filteredList = $filter('filter')(vm.discs, vm.search)
+      }
+
+      vm.refilter()
+
     }
 
 }());
