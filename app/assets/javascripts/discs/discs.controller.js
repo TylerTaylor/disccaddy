@@ -4,20 +4,18 @@
 
   angular
     .module('discCaddy')
-    .controller('DiscsController', ['Auth', '$rootScope', '$location', '$state', 'DiscFactory', '$filter',DiscsController])
+    .controller('DiscsController', ['Auth', '$rootScope', '$location', '$state', 'DiscFactory', '$filter', 'discs', DiscsController])
 
     function DiscsController(Auth, $rootScope, $location, $state, DiscFactory, $filter, discs) {
       var vm = this
+      vm.discs = discs
+      var POSTS_PER_PAGE = 30
 
-      vm.discs = []
+      // vm.page = 0
+      // vm.totalDiscs = vm.discs.data.length
+      // vm.totalPages = Math.ceil(vm.totalDiscs / POSTS_PER_PAGE)
 
-      DiscFactory.getDiscs()
-                 .then(setDiscs)
 
-      function setDiscs(data) {
-        vm.discs = data
-        vm.refilter()
-      }
 
       vm.search = ''
 

@@ -14,7 +14,12 @@
         .state('discs', {
           url: '/discs',
           templateUrl: 'discs/discs.html',
-          controller: 'DiscsController as vm'
+          controller: 'DiscsController as vm',
+          resolve: {
+            discs: function (DiscFactory) {
+              return DiscFactory.getDiscs()
+            }
+          }
         })
         .state('discs.myBag', {
           url: '/mybag',
