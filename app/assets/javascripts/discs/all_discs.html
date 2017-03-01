@@ -3,7 +3,7 @@
 <div class="discs-list">
   <input ng-model="vm.search" ng-change="vm.refilter()"/>
   <ul>
-    <li ng-repeat="disc in vm.discs">
+    <li ng-repeat="disc in vm.filteredList">
       {{ disc.name }}
     </li>
   </ul>

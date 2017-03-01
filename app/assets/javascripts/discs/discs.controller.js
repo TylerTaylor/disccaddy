@@ -17,6 +17,7 @@
 
       vm.paginateDiscs = function () {
         vm.discs = discs.slice(vm.page * DISCS_PER_PAGE, (vm.page + 1) * DISCS_PER_PAGE)
+        vm.refilter()
       }
 
       vm.previousPage = function () {
@@ -29,15 +30,15 @@
         vm.paginateDiscs()
       }
 
+
+      vm.search = ''
+
+      vm.refilter = function () {
+        vm.filteredList = $filter('filter')(vm.discs, vm.search)
+      }
+
       vm.paginateDiscs()
-
-      // vm.search = ''
-
-      // vm.refilter = function () {
-      //   vm.filteredList = $filter('filter')(vm.discs, vm.search)
-      // }
-
-      // vm.refilter()
+      vm.refilter()
 
     }
 
