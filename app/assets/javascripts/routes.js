@@ -12,6 +12,7 @@
           controller: 'HomeController as vm'
         })
         .state('discs', {
+          abstract: true,
           url: '/discs',
           templateUrl: 'discs/discs.html',
           controller: 'DiscsController as vm',
@@ -27,7 +28,7 @@
           controller: 'DiscsController as vm'
         })
         .state('discs.allDiscs', {
-          url: '/alldiscs',
+          url: '',
           templateUrl: 'discs/all_discs.html',
           controller: 'DiscsController as vm'
         })
