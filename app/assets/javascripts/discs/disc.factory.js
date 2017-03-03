@@ -22,7 +22,8 @@
       }
 
       function getUserDiscs(userId) {
-        
+        return $http.get('/api/' + userId + '/discs')
+                    .then(handleResponse)  
       }
 
       function handleResponse(response) {

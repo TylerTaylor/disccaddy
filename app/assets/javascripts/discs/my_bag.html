@@ -1,3 +1,10 @@
 <h4>MY BAG</h4>
 
-<p>I'm {{ currentUser.username }}</p>
+<p>I'm {{ currentUser.username }}'s bag</p>
+
+<ul>
+  <li ng-repeat="disc in vm.myDiscs | filter:typeFilter | limitTo:20:20*(vm.page-1)">
+    <!-- <img ng-src="{{ disc.thumbnail_url }}" alt="">{{ disc.name }} -->
+    <panel disc="disc"></panel>
+  </li>
+</ul>

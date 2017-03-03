@@ -38,7 +38,7 @@
         .state('discs.myBag', {
           url: '/users/:id/mybag',
           templateUrl: 'discs/my_bag.html',
-          controller: 'DiscsController as vm'
+          controller: 'MyBagController as vm'
         })
         .state('discs.allDiscs', {
           url: '',
