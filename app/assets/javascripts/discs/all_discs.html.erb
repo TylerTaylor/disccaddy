@@ -9,11 +9,14 @@
     <a href ng-click="typeFilter={disc_type: 'midrange'}">Midrange</a> |
     <a href ng-click="typeFilter={disc_type: 'putter'}">Putters</a>
   </p>
-  <ul>
-    <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:25:25*(vm.page-1)">
+
+  <panel filtered-list="vm.filteredList" page="vm.page"></panel>
+
+  <!-- <ul> -->
+    <!-- <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:25:25*(vm.page-1)">
       <img ng-src="{{ disc.thumbnail_url }}" alt="">{{ disc.name }}
-    </li>
-  </ul>
+    </li> -->
+  <!-- </ul> -->
   
 </div>
 
