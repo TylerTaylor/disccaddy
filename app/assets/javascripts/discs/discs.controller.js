@@ -4,15 +4,11 @@
 
   angular
     .module('discCaddy')
-    .controller('DiscsController', ['Auth', 
-                                    '$rootScope', 
-                                    'DiscFactory', 
-                                    '$filter', 
-                                    'discs', 
-                                    '$stateParams',
+    .controller('DiscsController', ['$filter', 
+                                    'discs',
                                     DiscsController])
 
-  function DiscsController(Auth, $rootScope, DiscFactory, $filter, discs, $stateParams) {
+  function DiscsController($filter, discs) {
     var vm = this
     vm.discs = discs
 
