@@ -13,15 +13,16 @@
       function getDiscs() {
         return $http.get('/api/discs')
                     .then(handleResponse)
-                    
-        function handleResponse(response) {
-          return response.data
-        } 
       }
 
-      function getDisc() {
-        
+      function getDisc(id) {
+        return $http.get('/api/discs/' + id)
+                    .then(handleResponse)
       }
+
+      function handleResponse(response) {
+        return response.data
+      } 
 
     }])
 

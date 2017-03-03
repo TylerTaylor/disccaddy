@@ -22,6 +22,16 @@
             }
           }
         })
+        .state('discs.detail', {
+          url: '/discName?discId',
+          templateUrl: 'discs/detail.html',
+          controller: 'DiscDetailController as vm',
+          resolve: {
+            disc: function (DiscFactory, $stateParams) {
+              return DiscFactory.getDisc($stateParams.discId)
+            }
+          }
+        })
         .state('discs.myBag', {
           url: '/mybag',
           templateUrl: 'discs/my_bag.html',

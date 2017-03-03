@@ -1,1 +1,3 @@
-<img ng-src="{{ $ctrl.disc.thumbnail_url }}" alt="">{{ $ctrl.disc.name }}
+<a href ui-sref="discs.detail({ discId: $ctrl.disc.id })">
+  <img ng-src="{{ $ctrl.disc.thumbnail_url }}" alt="">{{ $ctrl.disc.name }}
+</a>
