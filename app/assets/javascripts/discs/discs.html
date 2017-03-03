@@ -1,12 +1,12 @@
 <!-- if a user is logged in -->
-<div ng-if="!!currentUser.username">
+<div ng-if="!!currentUser.username" class="center">
   <p>Since we're logged in...</p>
 </div>
 
 <!-- if a user is not logged in -->
-<p ng-if="!currentUser.username">Since we're NOT logged in...</p>
+<p ng-if="!currentUser.username" class="center">Since we're NOT logged in...</p>
 
-<p>
+<p class="center">
   Show: 
   <a href="#" ui-sref="discs.allDiscs">All Discs</a> | 
   <a ng-if="!!currentUser" href="#" ui-sref="discs.myBag">My Discs</a>

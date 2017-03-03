@@ -15,6 +15,15 @@ ul {
   width: 100%;
 }
 
+.disc {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/*.disc p {
+  width: 70%;
+}*/
+
 /*.user-form {
   text-align: center;
 }*/
@@ -39,10 +48,16 @@ label {
 
 .flexer {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 
 .flexer-item {
   max-width: 80%;
+}
+
+.center {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
 }
