@@ -1,7 +1,1 @@
-<ul>
-  <li ng-repeat="disc in $ctrl.filteredList | filter:typeFilter | limitTo:25:25*($ctrl.page-1)">
-    <img ng-src="{{ disc.thumbnail_url }}" alt="">{{ disc.name }}
-  </li>
-</ul>
-
-<h3>HELLO?</h3>
+<img ng-src="{{ $ctrl.disc.thumbnail_url }}" alt="">{{ $ctrl.disc.name }}

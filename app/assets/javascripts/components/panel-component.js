@@ -3,9 +3,7 @@
   
   var Panel = {
     bindings: {
-      name: '<',
-      filteredList: '=',
-      page: '='
+      disc: '='
     },
     templateUrl: '/assets/components/panel.html'
   }
