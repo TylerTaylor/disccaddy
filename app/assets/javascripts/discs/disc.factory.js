@@ -7,7 +7,8 @@
 
       return {
         getDiscs: getDiscs,
-        getDisc: getDisc
+        getDisc: getDisc,
+        getUserDiscs: getUserDiscs
       }
 
       function getDiscs() {
@@ -18,6 +19,10 @@
       function getDisc(id) {
         return $http.get('/api/discs/' + id)
                     .then(handleResponse)
+      }
+
+      function getUserDiscs(userId) {
+        
       }
 
       function handleResponse(response) {

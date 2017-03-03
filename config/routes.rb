@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   scope "/api" do
     resources :discs
+
+    resources :users do
+      get 'discs' => 'discs#my_bag', as: 'my_bag'
+    end
   end
 
 end

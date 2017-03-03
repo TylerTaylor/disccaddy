@@ -19,6 +19,9 @@
           resolve: {
             discs: function (DiscFactory) {
               return DiscFactory.getDiscs()
+            },
+            user: function(Auth) {
+              return Auth.currentUser()
             }
           }
         })
@@ -33,7 +36,7 @@
           }
         })
         .state('discs.myBag', {
-          url: '/mybag',
+          url: '/users/:id/mybag',
           templateUrl: 'discs/my_bag.html',
           controller: 'DiscsController as vm'
         })

@@ -6,9 +6,10 @@
     .module('discCaddy')
     .controller('DiscsController', ['$filter', 
                                     'discs',
+                                    'user',
                                     DiscsController])
 
-  function DiscsController($filter, discs) {
+  function DiscsController($filter, discs, user) {
     var vm = this
     vm.discs = discs
 
