@@ -13,7 +13,7 @@
   <!-- <panel filtered-list="vm.filteredList" page="vm.page"></panel> -->
 
   <ul>
-    <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:25:25*(vm.page-1)">
+    <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1)">
       <!-- <img ng-src="{{ disc.thumbnail_url }}" alt="">{{ disc.name }} -->
       <panel disc="disc"></panel>
     </li>
