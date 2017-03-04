@@ -31,6 +31,7 @@
           controller: 'DiscDetailController as vm',
           resolve: {
             disc: function (DiscFactory, $stateParams) {
+              console.log($stateParams)
               return DiscFactory.getDisc($stateParams.discId)
             }
           }
@@ -38,7 +39,12 @@
         .state('discs.myBag', {
           url: '/users/:id/mybag',
           templateUrl: 'discs/my_bag.html',
-          controller: 'MyBagController as vm'
+          controller: 'MyBagController as vm',
+          resolve: {
+            myDiscs: function (DiscFactory, $stateParams) {
+              return DiscFactory.getUserDiscs($stateParams.id)
+            }
+          }
         })
         .state('discs.allDiscs', {
           url: '',

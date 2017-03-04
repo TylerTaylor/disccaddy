@@ -6,12 +6,14 @@
     .module('discCaddy')
     .controller('MyBagController', ['$filter', 
                                     'discs',
+                                    'myDiscs',
                                     'user',
                                     MyBagController])
 
-  function MyBagController($filter, discs, user) {
+  function MyBagController($filter, discs, myDiscs, user) {
     var vm = this
     vm.discs = discs
+    vm.myDiscs = myDiscs
 
     vm.page = 1
 
