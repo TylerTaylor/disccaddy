@@ -20,7 +20,7 @@
     vm.search = ''
 
     vm.refilter = function () {
-      vm.filteredList = $filter('filter')(vm.discs, vm.search)
+      vm.filteredList = $filter('filter')(vm.myDiscs, vm.search)
     }
 
     vm.refilter()

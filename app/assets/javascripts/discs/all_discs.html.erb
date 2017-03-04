@@ -10,31 +10,13 @@
     <a href ng-click="typeFilter={disc_type: 'putter'}">Putters</a>
   </p>
 
-  <!-- <panel filtered-list="vm.filteredList" page="vm.page"></panel> -->
-
   <ul>
     <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1)">
-      <!-- <img ng-src="{{ disc.thumbnail_url }}" alt="">{{ disc.name }} -->
       <panel disc="disc"></panel>
     </li>
   </ul>
   
 </div>
-
-<!-- <div>
-  <ul class="pagination">
-    <li ng-if="vm.page > 0">
-      <a href="" ng-click="vm.previousPage()">
-        << Previous
-      </a>
-    </li>
-    <li ng-if="vm.page < vm.totalPages - 1">
-      <a href="" ng-click="vm.nextPage()">
-        Next >>
-      </a>
-    </li>
-  </ul>
-</div> -->
 
 <uib-pagination class="pagination-sm pagination" 
                 total-items="vm.filteredList.length" 
