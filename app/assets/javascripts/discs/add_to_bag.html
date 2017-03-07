@@ -1,6 +1,22 @@
-<h4>MY BAG</h4>
+<h4>ADD TO BAG</h4>
 
-<div class="discs-list">
+<div class="disc">
+  <h3>{{ vm.discToAdd.name }}</h3>
+
+  <img ng-src="{{ vm.discToAdd.image_url }}" alt="">
+  
+  <p>Select a weight: </p>
+  <select ng-model="selectedWeight" ng-options="x for x in vm.weightRange">
+    <option value="" selected>--Please pick a weight--</option>
+  </select>
+  <br><br>
+
+  <p>Or enter a weight if you have one that's not listed:</p>
+  <input type="text" class="disc-weight"> g
+
+  <br><br>
+</div>
+<!-- <div class="discs-list">
   Search: <input ng-model="vm.search" ng-change="vm.refilter()"/> | <a href="" ui-sref="discs.addToBag({ id: currentUser.id })">+ Add Disc</a>
   <p>
     Filter by: 
@@ -28,4 +44,4 @@
   rotate='true'
   boundary-links='true' 
   items-per-page=30>
-</uib-pagination>
+</uib-pagination> -->

@@ -46,6 +46,22 @@
             }
           }
         })
+        .state('discs.addToBag', {
+          url: '/users/:id/myBag/add/:discId',
+          templateUrl: 'discs/add_to_bag.html',
+          controller: 'DiscAddController as vm',
+          resolve: {
+            // myDiscs: function (DiscFactory, $stateParams) {
+            //   return DiscFactory.getUserDiscs($stateParams.id)
+            // },
+            user: function (Auth) {
+              return Auth.currentUser()
+            },
+            discToAdd: function (DiscFactory, $stateParams) {
+              return DiscFactory.getDisc($stateParams.discId)
+            }
+          }
+        })
         .state('discs.allDiscs', {
           url: '',
           templateUrl: 'discs/all_discs.html',

@@ -20,5 +20,9 @@ class DiscsController < ApplicationController
     render json: discs
   end
 
+  def add_to_bag
+    binding.pry
+  end
+
 end
 

@@ -20,6 +20,11 @@ ul {
   margin: 0 auto;
 }
 
+.disc-weight {
+  width: 40px;
+  text-align: right;
+}
+
 /*.disc p {
   width: 70%;
 }*/

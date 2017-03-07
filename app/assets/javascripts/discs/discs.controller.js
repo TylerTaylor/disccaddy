@@ -13,17 +13,13 @@
   function DiscsController($filter, discs, user, $stateParams) {
     var vm = this
     vm.discs = discs
-
+    vm.refilter = refilter
     vm.page = 1
 
     vm.search = ''
 
-    vm.refilter = function () {
+    function refilter() {
       vm.filteredList = $filter('filter')(vm.discs, vm.search)
-    }
-
-    vm.checkParams = function () {
-      console.log($stateParams)
     }
 
     vm.refilter()

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     resources :users do
       get 'discs' => 'discs#my_bag', as: 'my_bag'
+      get 'discs/add_to_bag' => 'discs#add_to_bag', as: 'add_to_bag'
     end
   end
 

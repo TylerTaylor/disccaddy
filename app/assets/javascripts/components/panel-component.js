@@ -3,7 +3,8 @@
   
   var Panel = {
     bindings: {
-      disc: '='
+      disc: '=',
+      user: '='
     },
     templateUrl: '/assets/components/panel.html'
   }
