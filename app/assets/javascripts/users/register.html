@@ -2,6 +2,12 @@
 
 <!-- registration form -->
 <form name="form" ng-if="!currentUser.username" ng-submit="vm.register()">
+
+  <div class="validation-msg" ng-messages="form.username.$error" ng-if="form.username.$touched">
+    <div ng-message="required">&#8226; You must enter a username</div>
+    <div ng-message="minlength">&#8226; Must be more than 2 characters</div>
+  </div>
+
   <label for="username">Username</label>
   <input type="text" 
          name="username" 
@@ -9,22 +15,22 @@
          required="required" 
          minlength="3"><br>
 
-  <div ng-messages="form.username.$error" ng-if="form.username.$touched">
-    <div ng-message="required">You must enter a username</div>
-    <div ng-message="minlength">Must be more than 2 characters</div>
+  <div class="validation-msg" ng-messages="form.email.$error" ng-if="form.email.$touched">
+    <div ng-message="email">&#8226; Please enter valid email address</div>
   </div>
 
   <label for="email">Email</label>
   <input type="email" name="email"
          ng-model="vm.newUser.email"
-         pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/"><br>
+         pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/"><br> <!-- pattern not working ATM -->
 
-  <div ng-messages="form.email.$error">
-    <div ng-message="pattern">Please enter valid email address</div>
+  <div class="validation-msg" ng-messages="form.password.$error" ng-if="form.password.$touched">
+    <div ng-message="required">&#8226; Password is required</div>
+    <div ng-message="minlength">&#8226; Password must be at least 8 characters</div>
   </div>
 
   <label for="password">Password</label>
-  <input type="password" ng-model="vm.newUser.password"> <br>
+  <input type="password" ng-model="vm.newUser.password" required="required" minlength="8" name="password"> <br>
 
   <input type="submit" value="register">
 </form>

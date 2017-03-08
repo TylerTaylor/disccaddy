@@ -25,6 +25,10 @@ ul {
   text-align: right;
 }
 
+.validation-msg {
+  color: red;
+}
+
 /*.disc p {
   width: 70%;
 }*/
