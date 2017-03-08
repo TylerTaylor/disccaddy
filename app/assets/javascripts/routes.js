@@ -19,9 +19,6 @@
           resolve: {
             discs: function (DiscFactory) {
               return DiscFactory.getDiscs()
-            },
-            user: function(Auth) {
-              return Auth.currentUser()
             }
           }
         })

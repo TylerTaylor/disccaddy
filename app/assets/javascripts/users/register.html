@@ -1,12 +1,30 @@
 <h1>Sign Up</h1>
 
 <!-- registration form -->
-<form ng-if="!currentUser.username" ng-submit="vm.register()">
+<form name="form" ng-if="!currentUser.username" ng-submit="vm.register()">
   <label for="username">Username</label>
-  <input type="text" ng-model="vm.newUser.username"> <br>
+  <input type="text" 
+         name="username" 
+         ng-model="vm.newUser.username" 
+         required="required" 
+         minlength="3"><br>
+
+  <div ng-messages="form.username.$error" ng-if="form.username.$touched">
+    <div ng-message="required">You must enter a username</div>
+    <div ng-message="minlength">Must be more than 2 characters</div>
+  </div>
+
   <label for="email">Email</label>
-  <input type="email" ng-model="vm.newUser.email"> <br>
+  <input type="email" name="email"
+         ng-model="vm.newUser.email"
+         pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/"><br>
+
+  <div ng-messages="form.email.$error">
+    <div ng-message="pattern">Please enter valid email address</div>
+  </div>
+
   <label for="password">Password</label>
   <input type="password" ng-model="vm.newUser.password"> <br>
+
   <input type="submit" value="register">
 </form>
