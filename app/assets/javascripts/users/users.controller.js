@@ -35,7 +35,7 @@
           .then(function(user) {
             $rootScope.currentUser = user
             console.log("Just successfully signed in via users controller, now redirecting")
-            $state.go('home')
+            $state.reload()
           }, function(error) {
             console.log(error)
           })
