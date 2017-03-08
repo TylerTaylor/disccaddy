@@ -38,6 +38,7 @@
 
     vm.addToBag = function() {
         DiscFactory.addToBag(vm.discToAdd.id, vm.user.id)
+        $location.path('/discs/users/' + vm.user.id + '/mybag')
     }
 
   }
