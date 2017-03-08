@@ -21,7 +21,15 @@ class DiscsController < ApplicationController
   end
 
   def add_to_bag
-    binding.pry
+    user = User.find(disc_params[:user_id])
+    disc = Disc.find(disc_params[:disc_id])
+    user.discs << disc
+  end
+
+  private
+
+  def disc_params
+    params.permit(:user_id, :disc_id)
   end
 
 end

@@ -5,14 +5,18 @@
 
   <img ng-src="{{ vm.discToAdd.image_url }}" alt="">
   
-  <p>Select a weight: </p>
-  <select ng-model="selectedWeight" ng-options="x for x in vm.weightRange">
+  <br>
+  <label for="selectedWeight">Select a weight: </label>
+  <select ng-model="vm.selectedWeight" ng-options="x for x in vm.weightRange" ng-change="vm.selectWeight()">
     <option value="" selected>--Please pick a weight--</option>
   </select>
   <br><br>
 
   <p>Or enter a weight if you have one that's not listed:</p>
   <input type="text" class="disc-weight"> g
+
+  <br> <br>
+  <button class="btn btn-default" ng-click="vm.addToBag()">Add To Bag</button>
 
   <br><br>
 </div>

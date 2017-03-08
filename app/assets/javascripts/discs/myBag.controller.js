@@ -9,15 +9,13 @@
                                     'myDiscs',
                                     'user',
                                     '$stateParams',
-                                    'discToAdd',
                                     MyBagController])
 
-  function MyBagController($filter, discs, myDiscs, user, $stateParams, discToAdd) {
+  function MyBagController($filter, discs, myDiscs, user, $stateParams) {
     var vm = this
     vm.refilter = refilter
     vm.discs = discs
     vm.myDiscs = myDiscs
-    vm.discToAdd = discToAdd
 
     vm.page = 1
 
@@ -28,9 +26,6 @@
     }
 
     console.log($stateParams)
-
-    console.log("The disc we will be adding is:")
-    console.log(discToAdd)
 
     vm.refilter()
 

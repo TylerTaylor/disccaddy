@@ -27,8 +27,8 @@
                     .then(handleResponse)  
       }
 
-      function addToBag(discId) {
-        
+      function addToBag(discId, userId) {
+        return $http.post('/api/users/' + userId + '/discs/add_to_bag/' + discId)
       }
 
       function handleResponse(response) {

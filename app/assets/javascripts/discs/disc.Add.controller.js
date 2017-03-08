@@ -9,12 +9,13 @@
                                     'user',
                                     '$stateParams',
                                     'discToAdd',
+                                    'DiscFactory',
+                                    '$location',
                                     DiscAddController])
 
-  function DiscAddController(user, $stateParams, discToAdd) {
+  function DiscAddController(user, $stateParams, discToAdd, DiscFactory, $location) {
     var vm = this
-    // vm.discs = discs
-    // vm.myDiscs = myDiscs
+    vm.user = user
     vm.discToAdd = discToAdd
     vm.weightRange = weightRange()
 
@@ -31,7 +32,13 @@
       return weights
     }
 
-    // console.log(vm.weightRange)
+    vm.selectWeight = function() {
+        console.log(vm.selectedWeight)
+    }
+
+    vm.addToBag = function() {
+        DiscFactory.addToBag(vm.discToAdd.id, vm.user.id)
+    }
 
   }
 
