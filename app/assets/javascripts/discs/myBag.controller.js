@@ -25,8 +25,6 @@
       vm.filteredList = $filter('filter')(vm.myDiscs, vm.search)
     }
 
-    console.log($stateParams)
-
     vm.refilter()
 
   }
