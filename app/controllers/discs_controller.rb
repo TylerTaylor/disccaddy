@@ -23,13 +23,15 @@ class DiscsController < ApplicationController
   def add_to_bag
     user = User.find(disc_params[:user_id])
     disc = Disc.find(disc_params[:disc_id])
+    disc.selected_weight = disc_params[:weight]
+    
     user.discs << disc
   end
 
   private
 
   def disc_params
-    params.permit(:user_id, :disc_id)
+    params.permit(:user_id, :disc_id, :weight)
   end
 
 end

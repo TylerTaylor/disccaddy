@@ -44,16 +44,14 @@
             myDiscs: function (DiscFactory, $stateParams) {
               return DiscFactory.getUserDiscs($stateParams.id)
             }
-          }
+          },
+          params: {'id': null}
         })
         .state('discs.addToBag', {
           url: '/users/:id/myBag/add/:discId',
           templateUrl: 'discs/add_to_bag.html',
           controller: 'DiscAddController as vm',
           resolve: {
-            // myDiscs: function (DiscFactory, $stateParams) {
-            //   return DiscFactory.getUserDiscs($stateParams.id)
-            // },
             user: function (Auth) {
               return Auth.currentUser()
             },

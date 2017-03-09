@@ -12,7 +12,7 @@
 
   <ul>
     <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1)">
-      <panel disc="disc"></panel>
+      <panel disc="disc"></panel> - {{disc.disc_type}} - {{disc.selected_weight}}
     </li>
   </ul>
   
