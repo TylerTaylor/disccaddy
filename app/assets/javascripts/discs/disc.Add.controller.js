@@ -11,10 +11,10 @@
                                     'discToAdd',
                                     'DiscFactory',
                                     '$location',
-                                    '$state',
+                                    '$timeout',
                                     DiscAddController])
 
-  function DiscAddController(user, $stateParams, discToAdd, DiscFactory, $location, $state) {
+  function DiscAddController(user, $stateParams, discToAdd, DiscFactory, $location, $timeout) {
     var vm = this
     vm.user = user
     vm.discToAdd = discToAdd
@@ -39,9 +39,19 @@
 
     vm.addToBag = function() {
         DiscFactory.addToBag(vm.discToAdd.id, vm.user.id, vm.selectedWeight)
-        $location.path('/discs/users/' + vm.user.id + '/mybag')
+                   // .then($location.path('/discs/users/' + vm.user.id + '/mybag'))
+        // relocate()
+        $timeout(function() {
+          $location.path('/discs/users/' + vm.user.id + '/mybag')
+        }, 500)
         // $state.reload()
         // $state.go('discs.myBag', {'id': vm.user.id})
+    }
+
+    function relocate() {
+      $timeout(function() {
+        $location.path('/discs/users/' + vm.user.id + '/mybag')
+      }, 500)
     }
 
   }
