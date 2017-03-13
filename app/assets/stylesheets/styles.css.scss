@@ -27,7 +27,7 @@ ul {
 
 .disc {
   display: flex;
-  max-width: 80%;
+  /*max-width: 80%;*/
   margin: 0 auto;
   /*border: 10px solid gold;*/
   flex-wrap: wrap;
@@ -39,7 +39,7 @@ ul {
 .add-disc {
   display: flex;
   /*max-width: 80%;*/
-  min-width: 100%;
+  /*min-width: 100%;*/
   padding: 25px;
   margin: 0 auto;
   /*border: 10px solid black;*/
@@ -49,9 +49,9 @@ ul {
   /*text-align: center;*/
   background-color: #FFF;
   /*flex-wrap: wrap;*/
-  -webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+  /*-webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);*/
 }
 
 .detail {
