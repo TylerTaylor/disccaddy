@@ -49,9 +49,6 @@ ul {
   /*text-align: center;*/
   background-color: #FFF;
   /*flex-wrap: wrap;*/
-  /*-webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);*/
 }
 
 .detail {
@@ -66,6 +63,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center; /* Why do I need to align the text on top of the flexbox align? */
   align-items: center;
   flex-basis: 800px;
   flex-grow:2;
