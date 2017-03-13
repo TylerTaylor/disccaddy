@@ -88,6 +88,31 @@ ul {
   color: red;
 }
 
+.tooltip-wrap {
+  position: relative;
+}
+
+.tooltip-wrap .tooltip-content {
+  /*display: none;*/
+  /*position: absolute;*/
+  /*bottom: 5%;*/
+  /*left: 5%;*/
+  /*right: 5%;*/
+  background-color: #fff;
+  padding: 1em;
+  display: none;
+  font-family: Calibri, Tahoma, sans-serif;
+  position: absolute;
+  left: 1em;
+  z-index: 99;
+  margin-left: 0;
+  width: 100px;
+}
+
+.tooltip-wrap:hover .tooltip-content {
+  display: inline;
+}
+
 /*.disc p {
   width: 70%;
 }*/

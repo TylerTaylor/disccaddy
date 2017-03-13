@@ -20,8 +20,9 @@
     <tr ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1) | orderBy:'name'">
       <td>
         <panel disc="disc" user="currentUser"></panel> -
-        <a href ui-sref="discs.addToBag({ id: currentUser.id, discId: disc.id })">
+        <a href ui-sref="discs.addToBag({ id: currentUser.id, discId: disc.id })" class="tooltip-wrap">
           <span class="glyphicon glyphicon-plus"></span>
+          <span class="tooltip-content">Add To Bag</span>
         </a>
       </td>
     </tr>

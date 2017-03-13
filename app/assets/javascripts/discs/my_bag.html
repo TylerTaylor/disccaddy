@@ -10,12 +10,20 @@
     <a href ng-click="typeFilter={disc_type: 'putter'}">Putters</a>
   </p>
 
-  <ul>
+  <!-- <ul>
     <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1)">
       <panel disc="disc"></panel> - {{disc.disc_type}} - {{disc.selected_weight}}
     </li>
-  </ul>
+  </ul> -->
   
+  <table class="table table-striped">
+    <tr ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1) | orderBy:'name'">
+      <td>
+        <panel disc="disc"></panel> - {{disc.disc_type}} - {{disc.selected_weight}}
+      </td>
+    </tr>
+  </table>
+
 </div>
 
 <uib-pagination 
