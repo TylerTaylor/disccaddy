@@ -1,9 +1,14 @@
 <div class="disc">
-  <h1>{{ vm.disc.name }}</h1>
+  <div class="detail">
+    <img ng-src="{{ vm.disc.image_url }}" alt="">
+  </div>
 
-  <img ng-src="{{ vm.disc.image_url }}" alt="">
+  <div class="detail">
+    <h1>{{ vm.disc.name }}</h1>
+    <br><br>
 
-  <br><br>
+    <p class="detail detail1">{{ vm.disc.description }}</p>
+  </div>
 
-  <p>{{ vm.disc.description }}</p>
+
 </div>

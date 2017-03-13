@@ -1,51 +1,28 @@
 <h4>ADD TO BAG</h4>
 
-<div class="disc">
-  <h3>{{ vm.discToAdd.name }}</h3>
-
-  <img ng-src="{{ vm.discToAdd.image_url }}" alt="">
+<div class="add-disc">
+  <div class="detail">
+    <img ng-src="{{ vm.discToAdd.image_url }}" alt="">
+  </div>
   
   <br>
-  <label for="selectedWeight">Select a weight: </label>
-  <select ng-model="vm.selectedWeight" ng-options="x for x in vm.weightRange" ng-change="vm.selectWeight()">
-    <option value="" selected>--Please pick a weight--</option>
-  </select>
-  <br><br>
+  <div class="detail1 left">
+    <h3>{{ vm.discToAdd.name }}</h3>
 
-  <p>Or enter a weight if you have one that's not listed:</p>
-  <input type="text" class="disc-weight"> g
+    <br>
+    <label for="selectedWeight">Select a weight: </label>
+    <select ng-model="vm.selectedWeight" ng-options="x for x in vm.weightRange" ng-change="vm.selectWeight()">
+      <option value="" selected>--Please pick a weight--</option>
+    </select>
+    <br><br>
 
-  <br> <br>
-  <button class="btn btn-default" ng-click="vm.addToBag()">Add To Bag</button>
+    <label for="typedWeight">Or enter a weight if you have one that's not listed:</label>
+    <input type="text" name="typedWeight" class="disc-weight"> g
+
+    <br> <br>
+    <button class="btn btn-default" ng-click="vm.addToBag()">Add To Bag</button>
+  </div>
+
 
   <br><br>
 </div>
-<!-- <div class="discs-list">
-  Search: <input ng-model="vm.search" ng-change="vm.refilter()"/> | <a href="" ui-sref="discs.addToBag({ id: currentUser.id })">+ Add Disc</a>
-  <p>
-    Filter by: 
-    <a href ng-click="typeFilter={disc_type: 'distance'}">Distance</a> |
-    <a href ng-click="typeFilter={disc_type: 'fairway'}">Fairway</a> |
-    <a href ng-click="typeFilter={disc_type: 'midrange'}">Midrange</a> |
-    <a href ng-click="typeFilter={disc_type: 'putter'}">Putters</a>
-  </p>
-
-  <ul>
-    <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1)">
-      <panel disc="disc"></panel>
-    </li>
-  </ul>
-  
-</div>
-
-<uib-pagination 
-  class="pagination-sm pagination" 
-  total-items="vm.filteredList.length" 
-  ng-model="vm.page"
-  max-size='5' 
-  previous-text="&lsaquo; Prev" 
-  next-text="Next &rsaquo;"
-  rotate='true'
-  boundary-links='true' 
-  items-per-page=30>
-</uib-pagination> -->

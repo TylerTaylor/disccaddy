@@ -57,6 +57,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry'
+
+  gem 'rb-fsevent'
+  gem 'guard', require: false
+  gem 'guard-livereload', require: false
+  # gem 'rack-livereload', :require => false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
