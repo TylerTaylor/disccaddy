@@ -1,6 +1,6 @@
-<!-- <navi></navi> -->
+<div class="center">
+  <h1>Home</h1>
+  <h3 ng-if="!!currentUser.username">Logged in as: {{ currentUser.username }}</h3>
 
-<h1>Home</h1>
-<h3 ng-if="!!currentUser.username">Logged in as: {{ currentUser.username }}</h3>
-
-<button ng-if="!!currentUser.username" ng-click="vm.logout()" class="btn btn-primary">Logout</button>
+  <button ng-if="!!currentUser.username" ng-click="vm.logout()" class="btn btn-primary">Logout</button>
+</div>
