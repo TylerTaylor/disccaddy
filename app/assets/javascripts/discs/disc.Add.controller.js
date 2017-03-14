@@ -34,24 +34,18 @@
     }
 
     vm.selectWeight = function() {
-        return vm.selectedWeight
+        return vm.selectedWeight || vm.typedWeight
     }
 
     vm.addToBag = function() {
-        DiscFactory.addToBag(vm.discToAdd.id, vm.user.id, vm.selectedWeight)
-                   // .then($location.path('/discs/users/' + vm.user.id + '/mybag'))
-        // relocate()
-        $timeout(function() {
-          $location.path('/discs/users/' + vm.user.id + '/mybag')
-        }, 500)
-        // $state.reload()
-        // $state.go('discs.myBag', {'id': vm.user.id})
-    }
-
-    function relocate() {
+      DiscFactory.addToBag(vm.discToAdd.id, vm.user.id, vm.selectWeight())
+                 // .then($location.path('/discs/users/' + vm.user.id + '/mybag'))
+      // relocate()
       $timeout(function() {
         $location.path('/discs/users/' + vm.user.id + '/mybag')
       }, 500)
+      // $state.reload()
+      // $state.go('discs.myBag', {'id': vm.user.id})
     }
 
   }
