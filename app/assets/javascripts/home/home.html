@@ -6,6 +6,10 @@
 </div> -->
 
 <div class="flex-container2">
-  <img src="/images/AllDiscsIcon.gif" class="home-icon" alt="">
-  <img src="/images/MyBagIcon.gif" class="home-icon" alt="">
+  <a href ui-sref="discs.allDiscs">
+    <img src="/images/AllDiscsIcon.gif" class="home-icon" alt="View All Discs">
+  </a>
+  <a href ui-sref="discs.myBag({id: currentUser.id})">
+    <img src="/images/MyBagIcon.gif" class="home-icon" alt="View My Discs">
+  </a>
 </div>
