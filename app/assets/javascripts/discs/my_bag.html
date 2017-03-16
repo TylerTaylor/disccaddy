@@ -1,7 +1,8 @@
-<h4>MY BAG</h4>
+<h4 class="neg">MY BAG</h4>
 
 <div class="discs-list">
-  Search: <input ng-model="vm.search" ng-change="vm.refilter()"/> | <a href="" ui-sref="discs.addToBag({ id: currentUser.id })">+ Add Disc</a>
+  <input ng-model="vm.search" ng-change="vm.refilter()" placeholder="Search"/> 
+  <!-- <a href="" ui-sref="discs.addToBag({ id: currentUser.id })">+ Add Disc</a> -->
   <p>
     Filter by: 
     <a href ng-click="typeFilter={disc_type: 'distance'}">Distance</a> |
@@ -27,7 +28,7 @@
 </div>
 
 <uib-pagination 
-  class="pagination-sm pagination" 
+  class="pagination-sm pagination pull-right" 
   total-items="vm.filteredList.length" 
   ng-model="vm.page"
   max-size='5' 
