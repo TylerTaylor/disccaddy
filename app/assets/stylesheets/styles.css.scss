@@ -75,6 +75,21 @@ ul {
   /*align-self: center;*/
 }
 
+.flex-container2 {
+  padding-left: 100px;
+  padding-right: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 10px solid pink;
+  height: 70vh;
+}
+
+.home-icon {
+  border: 10px solid white;
+  border-radius: 25px;
+}
+
 .left {
   margin-left: 40px;
 }
