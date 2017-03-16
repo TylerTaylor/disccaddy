@@ -17,6 +17,10 @@ body {
   overflow: auto;
 }
 
+.neg {
+  margin-top: -20px;
+}
+
 .pagination {
   margin-top: 7px;
   margin-bottom: 3px;

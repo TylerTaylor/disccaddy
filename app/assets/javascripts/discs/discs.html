@@ -1,9 +1,9 @@
-<!-- display the nested views for discs here -->
 <div class="discs-container">
   <p class="center">
     Show: 
     <a href="#" ui-sref="discs.allDiscs">All Discs</a> | 
     <a ng-if="!!currentUser" href="#" ui-sref="discs.myBag({id: currentUser.id})">My Discs</a>
   </p>
+  <!-- display the nested views for discs here -->
   <ui-view></ui-view>
 </div>
