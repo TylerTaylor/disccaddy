@@ -9,12 +9,17 @@ body {
   margin: 0 auto;
   /*border: 10px solid gold;*/
   background-color: #FFF;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
 }
 
 .discs-list {
-  height: 66vh;
+  height: 69vh;
   overflow: auto;
+}
+
+.pagination {
+  margin-top: 7px;
+  margin-bottom: 3px;
 }
 
 .disc {
