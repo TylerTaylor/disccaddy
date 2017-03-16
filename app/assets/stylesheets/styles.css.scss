@@ -1,6 +1,6 @@
 body {
   padding-top: 70px;
-  background-color: #A5C190;
+  /*background-color: #A5C190;*/
 }
 
 a[ng-click]{
@@ -88,6 +88,21 @@ ul {
 .home-icon {
   border: 10px solid white;
   border-radius: 25px;
+}
+
+.icon-links {
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5em;
+  letter-spacing: 10px;
+}
+
+.flex-container3 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .left {

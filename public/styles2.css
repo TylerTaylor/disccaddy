@@ -1,5 +1,7 @@
 body {
-  background-color: #F3F2F3;
+  /*background-color: #F3F2F3;*/
+  background-image: url('images/background2.jpg');
+  background-size: cover;
 }
 
 .discs-container {
@@ -10,13 +12,19 @@ body {
   padding: 20px;
 }
 
+.discs-list {
+  height: 66vh;
+  overflow: auto;
+}
+
 .disc {
   background-color: #FFF;
   height: 80%;
 }
 
 .navbar, .navbar-default, .navbar-fixed-top {
-  background-color: #F3F2F3;
+  /*background-color: #F3F2F3;*/
+  background: none;
 }
 
 .navbar-default .navbar-nav > li > a {
