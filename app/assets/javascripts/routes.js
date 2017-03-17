@@ -43,9 +43,7 @@
                 $location.path('/users/signin')  
               } else {
                 return Auth.currentUser()
-
               }
-              
             },
             myDiscs: function (DiscFactory, $stateParams) {
               return DiscFactory.getUserDiscs($stateParams.id)
