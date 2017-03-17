@@ -38,8 +38,14 @@
           templateUrl: 'discs/my_bag.html',
           controller: 'MyBagController as vm',
           resolve: {
-            user: function (Auth) {
-              return Auth.currentUser()
+            user: function (Auth, $location) {
+              if (Auth._currentUser === null) {
+                $location.path('/users/signin')  
+              } else {
+                return Auth.currentUser()
+
+              }
+              
             },
             myDiscs: function (DiscFactory, $stateParams) {
               return DiscFactory.getUserDiscs($stateParams.id)
