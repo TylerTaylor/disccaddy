@@ -12,21 +12,25 @@
         addToBag: addToBag
       }
 
+      // hits the #index method in discs_controller.rb
       function getDiscs() {
         return $http.get('/api/discs')
                     .then(handleResponse)
       }
 
+      // hits the #show method in discs_controller.rb
       function getDisc(id) {
         return $http.get('/api/discs/' + id)
                     .then(handleResponse)
       }
 
+      // hits the #my_bag method in discs_controller.rb
       function getUserDiscs(userId) {
         return $http.get('/api/users/' + userId + '/discs')
                     .then(handleResponse)  
       }
 
+      // hits the #add_to_bag method in discs_controller.rb
       function addToBag(discId, userId, discWeight) {
         return $http.post('/api/users/' + userId + '/discs/add_to_bag/' + discId, { weight: discWeight })
       }
