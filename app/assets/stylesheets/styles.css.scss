@@ -1,9 +1,3 @@
-/* NAVBAR - move to other file? */
-
-.navbar-default .navbar-nav > li > a {
-  /*color: #E9F0EF;*/
-}
-
 /* DISCS */
 
 .discs-list {
@@ -61,12 +55,12 @@
 }
 
 .flex-container2 {
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: 10px solid pink;
+  /*border: 10px solid pink;*/
   height: 70vh;
 }
 
