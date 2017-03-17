@@ -7,12 +7,10 @@
     .controller('MyBagController', ['$filter', 
                                     'discs',
                                     'myDiscs',
-                                    'user',
-                                    '$stateParams',
                                     '$anchorScroll',
                                     MyBagController])
 
-  function MyBagController($filter, discs, myDiscs, user, $stateParams, $anchorScroll) {
+  function MyBagController($filter, discs, myDiscs, $anchorScroll) {
     var vm = this
     vm.refilter = refilter
     vm.discs = discs
