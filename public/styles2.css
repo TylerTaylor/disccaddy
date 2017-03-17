@@ -42,7 +42,7 @@ a:hover, a:link, a:visited, a:active {
 .navbar, .navbar-default, .navbar-fixed-top {
   /*background-color: #F3F2F3;*/
   /*background: none;*/
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -55,4 +55,8 @@ a:hover, a:link, a:visited, a:active {
 
 .navbar-default .navbar-brand {
   color: #426044;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
