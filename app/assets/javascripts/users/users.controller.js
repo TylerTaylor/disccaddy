@@ -9,7 +9,7 @@
     function UsersController(Auth, $rootScope, $state, $scope) {
       var vm = this
       vm.login = login
-      vm.logout = Auth.logout
+      // vm.logout = Auth.logout
       vm.register = register
       vm.username = {}
       
@@ -58,6 +58,7 @@
 
       $rootScope.$on('devise:logout', function(event, user) {
         $rootScope.currentUser = {}
+        $state.go('home')
       })
     }
 
