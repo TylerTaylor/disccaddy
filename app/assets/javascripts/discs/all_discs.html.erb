@@ -30,14 +30,15 @@
   
 </div>
 
-<uib-pagination class="pagination-sm pagination pull-right" 
-                total-items="vm.filteredList.length" 
-                ng-model="vm.page"
-                max-size='5' 
-                previous-text="&lsaquo; Prev" 
-                next-text="Next &rsaquo;"
-                rotate='true'
-                boundary-links='true' 
-                items-per-page=30
-                ng-change="vm.pageChanged()">
+<uib-pagination 
+  class="pagination-sm pagination pull-right" 
+  total-items="vm.filteredList.length" 
+  ng-model="vm.page"
+  max-size='5' 
+  previous-text="&lsaquo; Prev" 
+  next-text="Next &rsaquo;"
+  rotate='true'
+  boundary-links='true' 
+  items-per-page=30
+  ng-change="vm.pageChanged()">
 </uib-pagination>
