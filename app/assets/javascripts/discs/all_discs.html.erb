@@ -11,7 +11,7 @@
 <div class="discs-list">
 
   <table class="table table-striped">
-    <tr ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1) | orderBy:'name'">
+    <tr ng-repeat="disc in vm.filteredList | filter:typeFilter | orderBy:'name' | limitTo:20:20*(vm.page-1) ">
       <td>
         <panel disc="disc" user="currentUser"></panel> -
         <a href ui-sref="discs.addToBag({ id: currentUser.id, discId: disc.id })" class="tooltip-wrap">
