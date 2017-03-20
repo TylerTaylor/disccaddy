@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :users do
       get 'discs' => 'discs#my_bag', as: 'my_bag'
       post 'discs/add_to_bag/:disc_id' => 'discs#add_to_bag', as: 'add_to_bag'
+      delete 'discs/:disc_id/remove_disc' => 'discs#remove_from_bag'
     end
   end
 

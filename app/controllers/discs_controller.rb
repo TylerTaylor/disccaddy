@@ -28,6 +28,13 @@ class DiscsController < ApplicationController
     user.discs << disc
   end
 
+  def remove_from_bag
+    user = User.find(disc_params[:user_id])
+    disc = Disc.find(disc_params[:disc_id])
+
+    user.discs.delete(disc)
+  end
+
   private
 
   def disc_params

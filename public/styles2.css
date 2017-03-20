@@ -36,6 +36,14 @@ ul {
   list-style: none;
 }
 
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+  vertical-align: middle;
+}
+
+.padright {
+  padding-right: 10px;
+}
+
 /* DISCS */
 
 .discs-container {

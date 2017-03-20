@@ -9,7 +9,8 @@
         getDiscs: getDiscs,
         getDisc: getDisc,
         getUserDiscs: getUserDiscs,
-        addToBag: addToBag
+        addToBag: addToBag,
+        removeFromBag: removeFromBag
       }
 
       // hits the #index method in discs_controller.rb
@@ -33,6 +34,11 @@
       // hits the #add_to_bag method in discs_controller.rb
       function addToBag(discId, userId, discWeight) {
         return $http.post('/api/users/' + userId + '/discs/add_to_bag/' + discId, { weight: discWeight })
+      }
+
+      function removeFromBag(discId, userId) {
+        // /api/users/:user_id/discs/:disc_id/remove_disc
+        return $http.delete('/api/users/' + userId + '/discs/' + discId + '/remove_disc')
       }
 
       function handleResponse(response) {
