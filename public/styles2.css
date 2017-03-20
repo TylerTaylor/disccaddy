@@ -109,3 +109,7 @@ ul {
 .form-control {
   /*max-width: 50%;*/
 }
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: rgba(238, 238, 238, 1)
+}
