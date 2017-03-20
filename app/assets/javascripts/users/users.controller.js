@@ -35,7 +35,7 @@
           .then(function(user) {
             $rootScope.currentUser = user // this is being lost on refresh
             $cookies.putObject("currentUser", user)
-
+            
             console.log("Just successfully signed in via users controller, now redirecting")
             $state.reload()
           }, function(error) {
