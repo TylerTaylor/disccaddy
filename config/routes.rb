@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       get 'discs' => 'discs#my_bag', as: 'my_bag'
       post 'discs/add_to_bag/:disc_id' => 'discs#add_to_bag', as: 'add_to_bag'
     end
+
+    get 'current_user', to: 'application#user_api'
   end
 
 end
