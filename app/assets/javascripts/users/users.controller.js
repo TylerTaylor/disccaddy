@@ -6,7 +6,7 @@
     .module('discCaddy')
     .controller('UsersController', UsersController)
 
-    function UsersController(Auth, $rootScope, $state, $scope) {
+    function UsersController(Auth, $rootScope, $state, $scope, $window, $cookies) {
       var vm = this
       vm.login = login
       // vm.logout = Auth.logout
@@ -33,7 +33,9 @@
 
         Auth.login(vm.userForm, config)
           .then(function(user) {
-            $rootScope.currentUser = user
+            $rootScope.currentUser = user // this is being lost on refresh
+            $cookies.putObject("currentUser", user)
+
             console.log("Just successfully signed in via users controller, now redirecting")
             $state.reload()
           }, function(error) {
@@ -58,6 +60,7 @@
 
       $rootScope.$on('devise:logout', function(event, user) {
         $rootScope.currentUser = {}
+        $cookies.remove('currentUser')
         $state.go('home')
       })
     }
