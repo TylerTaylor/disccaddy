@@ -14,10 +14,6 @@ class ApplicationController < ActionController::Base
     
   end
 
-  def user_api
-    render json: current_user
-  end
-
   protected
 
   def configure_permitted_parameters
