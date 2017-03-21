@@ -40,6 +40,25 @@ ul {
   vertical-align: middle;
 }
 
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: rgba(238, 238, 238, 1)
+}
+
+.validation-msg {
+  color: red;
+}
+
+/* POSITIONING */
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.left {
+  margin-left: 40px;
+}
+
 .padright {
   padding-right: 10px;
 }
@@ -60,8 +79,58 @@ ul {
 }
 
 .disc {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 25px;
   background-color: #FFF;
   height: 80%;
+}
+
+.add-disc {
+  display: flex;
+  padding: 25px;
+  margin: 0 auto;
+  justify-content: center;
+  background-color: #FFF;
+}
+
+.detail {
+  flex-basis: 400px;
+  flex-grow: 1;
+}
+
+.detail1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center; /* Why do I need to align the text on top of the flexbox align? */
+  align-items: center;
+  flex-basis: 800px;
+  flex-grow:2;
+  margin: 0 auto;
+}
+
+.flex-container2 {
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+}
+
+.flex-container3 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.disc-weight {
+  width: 40px;
+  text-align: right;
 }
 
 /* NAVBAR */
@@ -106,10 +175,24 @@ ul {
   padding: 20px 0px 35px 0px;
 }
 
-.form-control {
-  /*max-width: 50%;*/
+/* TOOLTIP */
+
+.tooltip-wrap {
+  position: relative;
 }
 
-.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-   background-color: rgba(238, 238, 238, 1)
+.tooltip-wrap .tooltip-content {
+  background-color: #fff;
+  padding: 1em;
+  display: none;
+  font-family: Calibri, Tahoma, sans-serif;
+  position: absolute;
+  left: 1em;
+  z-index: 99;
+  margin-left: 0;
+  width: 100px;
+}
+
+.tooltip-wrap:hover .tooltip-content {
+  display: inline;
 }
