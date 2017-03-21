@@ -38,9 +38,20 @@
     function removeDisc(disc) {
       if (confirm("Are you sure you want to remove this disc?")) {
         DiscFactory.removeFromBag(disc.id, vm.user.id)
-        vm.myDiscs = $filter('filter')(vm.myDiscs, {id: !disc.id})
-        vm.refilter()
+                   // .then(refreshDiscs())
+
+        $timeout(function() {
+          refreshDiscs()
+        }, 500)
       }
+    }
+
+    function refreshDiscs() {
+      DiscFactory.getUserDiscs(vm.user.id)
+                 .then(function(response){
+                   vm.myDiscs = response
+                   vm.refilter()
+                 })
     }
 
     vm.refilter()

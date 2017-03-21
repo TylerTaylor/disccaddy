@@ -39,6 +39,7 @@
       function removeFromBag(discId, userId) {
         // /api/users/:user_id/discs/:disc_id/remove_disc
         return $http.delete('/api/users/' + userId + '/discs/' + discId + '/remove_disc')
+                    .then(getUserDiscs(userId))
       }
 
       function handleResponse(response) {
