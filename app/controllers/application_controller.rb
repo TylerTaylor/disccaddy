@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  protect_from_forgery
+  # protect_from_forgery
   respond_to :json
 
   after_filter :set_csrf_cookie_for_ng

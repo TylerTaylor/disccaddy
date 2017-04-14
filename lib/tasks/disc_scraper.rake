@@ -75,11 +75,17 @@ namespace :scraper do
     log = ActiveSupport::Logger.new('log/scraper.log')
     start_time = Time.now
 
+    #####
+    # Use the block below to go through all 4 URLs at once
+    #####
     # urls.each do |disc_type, url|
     #   scrape_discs(disc_type.to_s, url)
     # end
 
-    scrape_discs("distance", 'https://discsunlimited.net/disc-types/distance-drivers?limit=600')
+    #####
+    # Use the following line (with the appropriate type and url from above) to get a single type
+    #####
+    # scrape_discs("distance", 'https://discsunlimited.net/disc-types/distance-drivers?limit=600')
 
     end_time = Time.now
     duration = end_time - start_time
