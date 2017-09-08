@@ -1,10 +1,10 @@
 (function () {
-  
+
   'use strict'
 
   angular
     .module('discCaddy')
-    .controller('UsersController', UsersController)
+    .controller('UsersController', [UsersController])
 
     function UsersController(Auth, $rootScope, $state, $scope, $window, $cookies) {
       var vm = this
@@ -12,7 +12,7 @@
       // vm.logout = Auth.logout
       vm.register = register
       vm.username = {}
-      
+
       $scope.signedIn = Auth.isAuthenticated
       $scope.logout = Auth.logout
 
@@ -35,7 +35,7 @@
           .then(function(user) {
             $rootScope.currentUser = user // this is being lost on refresh
             $cookies.putObject("currentUser", user)
-            
+
             console.log("Just successfully signed in via users controller, now redirecting")
             $state.reload()
           }, function(error) {
@@ -55,7 +55,7 @@
             $rootScope.currentUser = registeredUser
           }, function(error) {
             console.log(error)
-          }) 
+          })
       }
 
       $rootScope.$on('devise:logout', function(event, user) {

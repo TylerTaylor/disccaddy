@@ -1,10 +1,10 @@
 (function () {
-  
+
   'use strict'
 
   angular
     .module('discCaddy')
-    .controller('HomeController', HomeController)
+    .controller('HomeController', [HomeController])
 
     function HomeController(Auth, $rootScope) {
       var vm = this
@@ -66,7 +66,7 @@
     //         $rootScope.currentUser = registeredUser
     //       }, function(error) {
     //         console.log(error)
-    //       })  
+    //       })
     //   }
 
 
