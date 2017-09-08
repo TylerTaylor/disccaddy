@@ -9,7 +9,10 @@
       $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
     })
 
-  angular.module('discCaddy').run(function($rootScope, $state, Auth, $cookies) {
+  angular.module('discCaddy').run(["$rootScope",
+                                   "$state",
+                                   "$cookies",
+                                   function($rootScope, $state, Auth, $cookies) {
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
       // if (toState.authenticate && !Auth.isAuthenticated()) {
 
@@ -21,6 +24,6 @@
         event.preventDefault();
       }
     })
-  })
+  }])
 
 }());
