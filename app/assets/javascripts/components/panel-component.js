@@ -1,6 +1,6 @@
 (function () {
   'use strict'
-  
+
   var Panel = {
     bindings: {
       disc: '=',
@@ -11,6 +11,6 @@
 
   angular
     .module('discCaddy')
-    .component('panel', Panel)
+    .component('panel', [Panel])
 
 }());
