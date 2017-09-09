@@ -4,7 +4,8 @@
 
   angular
     .module('discCaddy')
-    .controller('UsersController', [UsersController])
+    .controller('UsersController', ['Auth', '$rootScope', '$state',
+                                    '$scope', '$window', '$cookies', UsersController])
 
     function UsersController(Auth, $rootScope, $state, $scope, $window, $cookies) {
       var vm = this

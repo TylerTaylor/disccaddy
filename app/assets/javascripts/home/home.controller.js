@@ -4,7 +4,7 @@
 
   angular
     .module('discCaddy')
-    .controller('HomeController', [HomeController])
+    .controller('HomeController', ['Auth', '$rootScope', HomeController])
 
     function HomeController(Auth, $rootScope) {
       var vm = this
