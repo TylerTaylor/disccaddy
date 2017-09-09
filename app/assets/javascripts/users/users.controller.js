@@ -4,8 +4,11 @@
 
   angular
     .module('discCaddy')
-    .controller('UsersController', ['Auth', '$rootScope', '$state',
-                                    '$scope', '$window', '$cookies', UsersController])
+    // .controller('UsersController', ['Auth', '$rootScope', '$state',
+    //                                 '$scope', '$window', '$cookies', UsersController])
+    .controller('UsersController', UsersController);
+
+    UsersController.$inject = ["Auth", "$rootScope", "$state", "$scope", "$window", "$cookies"];
 
     function UsersController(Auth, $rootScope, $state, $scope, $window, $cookies) {
       var vm = this

@@ -4,7 +4,10 @@
 
   angular
     .module('discCaddy')
-    .controller('HomeController', ['Auth', '$rootScope', HomeController])
+    // .controller('HomeController', ['Auth', '$rootScope', HomeController])
+    .controller('HomeController', HomeController);
+
+    HomeController.$inject = ['Auth', '$rootScope'];
 
     function HomeController(Auth, $rootScope) {
       var vm = this

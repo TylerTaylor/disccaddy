@@ -1,14 +1,17 @@
 (function () {
-  
+
   'use strict'
 
   angular
     .module('discCaddy')
-    .controller('DiscsController', ['$filter', 
-                                    'discs',
-                                    '$stateParams',
-                                    '$anchorScroll',
-                                    DiscsController])
+    // .controller('DiscsController', ['$filter',
+    //                                 'discs',
+    //                                 '$stateParams',
+    //                                 '$anchorScroll',
+    //                                 DiscsController])
+    .controller('DiscsController', DiscsController);
+
+  DiscsController.$inject = ['$filter', 'discs', '$stateParams', '$anchorScroll'];
 
   function DiscsController($filter, discs, $stateParams, $anchorScroll) {
     var vm = this

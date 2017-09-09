@@ -1,18 +1,21 @@
 (function () {
-  
+
   'use strict'
 
   angular
     .module('discCaddy')
-    .controller('DiscAddController', [
-                                    // 'myDiscs',
-                                    'user',
-                                    '$stateParams',
-                                    'discToAdd',
-                                    'DiscFactory',
-                                    '$location',
-                                    '$timeout',
-                                    DiscAddController])
+    // .controller('DiscAddController', [
+    //                                 // 'myDiscs',
+    //                                 'user',
+    //                                 '$stateParams',
+    //                                 'discToAdd',
+    //                                 'DiscFactory',
+    //                                 '$location',
+    //                                 '$timeout',
+    //                                 DiscAddController])
+    .controller('DiscAddController', DiscAddController)
+
+  DiscAddController.$inject = ['user', '$stateParams', 'discToAdd', 'DiscFactory', '$location', '$timeout'];
 
   function DiscAddController(user, $stateParams, discToAdd, DiscFactory, $location, $timeout) {
     var vm = this

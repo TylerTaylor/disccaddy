@@ -1,17 +1,20 @@
 (function () {
-  
+
   'use strict'
 
   angular
     .module('discCaddy')
-    .controller('MyBagController', ['$filter', 
-                                    'discs',
-                                    'myDiscs',
-                                    '$anchorScroll',
-                                    'DiscFactory',
-                                    'user',
-                                    '$timeout',
-                                    MyBagController])
+    // .controller('MyBagController', ['$filter',
+    //                                 'discs',
+    //                                 'myDiscs',
+    //                                 '$anchorScroll',
+    //                                 'DiscFactory',
+    //                                 'user',
+    //                                 '$timeout',
+    //                                 MyBagController])
+    .controller('MyBagController', MyBagController);
+
+  MyBagController.$inject = ["$filter", "discs", "myDiscs", "$anchorScroll", "DiscFactory", "user", "$timeout"];
 
   function MyBagController($filter, discs, myDiscs, $anchorScroll, DiscFactory, user, $timeout) {
     var vm = this
