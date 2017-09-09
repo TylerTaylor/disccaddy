@@ -11,6 +11,6 @@
 
   angular
     .module('discCaddy')
-    .component('panel', [Panel])
+    .component('panel', Panel)
 
 }());

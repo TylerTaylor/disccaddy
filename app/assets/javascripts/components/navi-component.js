@@ -12,6 +12,6 @@
 
   angular
     .module('discCaddy')
-    .component('navi', [Navi])
+    .component('navi', Navi)
 
 }());
