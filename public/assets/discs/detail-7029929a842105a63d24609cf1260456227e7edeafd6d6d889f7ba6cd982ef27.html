@@ -1,0 +1,17 @@
+<div class="disc">
+  <div class="detail">
+    <img ng-src="{{ vm.disc.image_url }}" alt="">
+  </div>
+
+  <div class="detail">
+    <h1>{{ vm.disc.name }}</h1>
+
+    <button ui-sref="discs.addToBag({ id: currentUser.id, discId: vm.disc.id })" class="btn btn-default">Add To Bag</button>
+
+    <br><br>
+
+    <p class="detail detail1">{{ vm.disc.description }}</p>
+  </div>
+
+
+</div>

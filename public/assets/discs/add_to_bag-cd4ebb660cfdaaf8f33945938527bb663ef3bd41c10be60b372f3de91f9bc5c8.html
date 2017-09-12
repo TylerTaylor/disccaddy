@@ -1,0 +1,43 @@
+<h4 class="center">ADD TO BAG</h4>
+
+<div class="add-disc">
+  <div class="detail">
+    <img ng-src="{{ vm.discToAdd.image_url }}" alt="">
+  </div>
+  
+  <br>
+  <div class="detail1 left">
+    <h3>{{ vm.discToAdd.name }}</h3>
+
+    <br>
+
+    <form name="form" ng-submit="vm.addToBag()">
+      <label for="selectedWeight">Select a weight: </label>
+      <select ng-model="vm.selectedWeight" ng-options="x for x in vm.weightRange" ng-change="vm.selectWeight()">
+        <option value="" selected>--Please pick a weight--</option>
+      </select>
+      <br><br>
+
+      <div>
+        <label for="typedWeight">Or enter a weight if you have one that's not listed:</label> <br>
+        <input ng-model="vm.typedWeight" 
+               ng-required="!vm.selectedWeight" 
+               ng-pattern="/^[0-9]{3}$/" 
+               ng-change="vm.selectWeight()"
+               type="text" 
+               name="typedWeight" 
+               class="disc-weight"> g
+
+        <span ng-show="form.typedWeight.$error.pattern">
+          Not a valid weight. Please enter a 3 digit number.
+        </span>
+      </div>
+
+      <br> <br>
+      <button class="btn btn-default" ng-disabled="form.$invalid">Add To Bag</button>
+    </form>
+  </div>
+
+
+  <br><br>
+</div>
