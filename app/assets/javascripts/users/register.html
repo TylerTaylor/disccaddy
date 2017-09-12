@@ -3,7 +3,7 @@
   <h1>Sign Up</h1>
   <br>
   <!-- registration form -->
-  <form name="form" ng-if="!currentUser.username" ng-submit="vm.register()">
+  <form name="form" ng-if="!currentUser.username" ng-submit="vm.register()" novalidate="novalidate">
 
     <div class="form-group">
       <div class="validation-msg" ng-messages="form.username.$error" ng-if="form.username.$touched">
