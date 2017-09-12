@@ -50634,6 +50634,7 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
             $cookies.putObject("currentUser", user)
 
             console.log("Just successfully signed in via users controller, now redirecting")
+            $state.go('home')
             $state.reload()
           }, function(error) {
             console.log(error)
@@ -50650,6 +50651,8 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
         Auth.register(vm.newUser, config)
           .then(function(registeredUser) {
             $rootScope.currentUser = registeredUser
+            
+            $state.go('home')
           }, function(error) {
             console.log(error)
           })
