@@ -31,7 +31,7 @@
       <div class="col-md-9">
         <input type="email" name="email"
              ng-model="vm.newUser.email"
-             required="required"
+             pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/"
              class="form-control"><br> <!-- pattern not working ATM -->
       </div>
     </div>
