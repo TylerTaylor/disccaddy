@@ -58,6 +58,7 @@
         Auth.register(vm.newUser, config)
           .then(function(registeredUser) {
             $rootScope.currentUser = registeredUser
+            $cookies.putObject("currentUser", user)
             $state.go('home')
           }, function(error) {
             console.log(error)
