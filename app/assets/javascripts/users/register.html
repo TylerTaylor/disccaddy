@@ -13,10 +13,10 @@
 
       <label for="username" class="col-sm-3 control-label">Username</label>
       <div class="col-sm-9">
-        <input type="text" 
-             name="username" 
-             ng-model="vm.newUser.username" 
-             required="required" 
+        <input type="text"
+             name="username"
+             ng-model="vm.newUser.username"
+             required="required"
              minlength="3"
              class="form-control"><br>
       </div>
@@ -31,14 +31,14 @@
       <div class="col-md-9">
         <input type="email" name="email"
              ng-model="vm.newUser.email"
-             pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/"
+             pattern="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/"
              class="form-control"><br> <!-- pattern not working ATM -->
       </div>
     </div>
 
     <div class="form-group">
-      <div class="validation-msg" 
-           ng-messages="form.password.$error" 
+      <div class="validation-msg"
+           ng-messages="form.password.$error"
            ng-if="form.password.$touched">
         <div ng-message="required">&#8226; Password is required</div>
         <div ng-message="minlength">&#8226; Password must be at least 8 characters</div>
@@ -46,11 +46,11 @@
 
       <label for="password" class="col-sm-3 control-label">Password</label>
       <div class="col-md-9">
-        <input type="password" 
-               ng-model="vm.newUser.password" 
-               required="required" 
-               minlength="8" 
-               name="password" 
+        <input type="password"
+               ng-model="vm.newUser.password"
+               required="required"
+               minlength="8"
+               name="password"
                class="form-control"> <br>
       </div>
     </div>
