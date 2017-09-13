@@ -67,7 +67,6 @@
             vm.username = registeredUser.username
 
             console.log("We are in the Auth.register function...redirecting home?")
-            debugger;
             $state.go('home')
           }, function(error) {
             console.log(error)
@@ -78,6 +77,7 @@
       $rootScope.$on('devise:logout', function(event, user) {
         $rootScope.currentUser = {}
         $cookies.remove('currentUser')
+        $state.reload()
         $state.go('home')
       })
     }
