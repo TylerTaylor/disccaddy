@@ -20,6 +20,9 @@
       $scope.signedIn = Auth.isAuthenticated
       $scope.logout = Auth.logout
 
+      // does this ever get called??
+
+      // Check for current user
       Auth.currentUser()
         .then(function(user) {
           $rootScope.currentUser = user
@@ -28,6 +31,7 @@
           console.log(error)
         })
 
+      // Login
       function login() {
         var config = {
           headers: {
@@ -38,6 +42,7 @@
         Auth.login(vm.userForm, config)
           .then(function(user) {
             $rootScope.currentUser = user // this is being lost on refresh
+            vm.username = user.username
             $cookies.putObject("currentUser", user)
 
             console.log("Just successfully signed in via users controller, now redirecting")
@@ -46,8 +51,9 @@
           }, function(error) {
             console.log(error)
           })
-      }
+      } // end login()
 
+      // Register
       function register() {
         var config = {
           headers: {
@@ -58,13 +64,17 @@
         Auth.register(vm.newUser, config)
           .then(function(registeredUser) {
             $rootScope.currentUser = registeredUser
-            
+            vm.username = registeredUser.username
+
+            console.log("We are in the Auth.register function...redirecting home?")
+            debugger;
             $state.go('home')
           }, function(error) {
             console.log(error)
           })
-      }
+      } // end register()
 
+      // Listen for logout event and handle everything here
       $rootScope.$on('devise:logout', function(event, user) {
         $rootScope.currentUser = {}
         $cookies.remove('currentUser')
