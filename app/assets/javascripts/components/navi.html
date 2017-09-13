@@ -31,7 +31,10 @@
         </li> -->
         <li ng-hide="signedIn()"><a ui-sref="users.signIn">Login</a></li>
         <li ng-hide="signedIn()"><a ui-sref="users.register">Register</a></li>
-        <li ng-show="signedIn()"><a href="#">Logged in as: {{ users.username }}</a></li>
+
+        <!-- could do ng-if users.username here... but i want it to just show up and not have to do this -->
+        <li ng-if="$root.currentUser" ng-show="signedIn()"><a href="#">Logged in as: {{ $root.currentUser.username }}</a></li>
+        <!-- <li ng-show="signedIn()" ng-if="users.username"><a href="#">Logged in as: {{ users.username }}</a></li> -->
         <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
       </ul> <!-- /.navbar-right -->
     </div><!-- /.navbar-collapse -->
