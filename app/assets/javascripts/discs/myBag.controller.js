@@ -14,9 +14,9 @@
     //                                 MyBagController])
     .controller('MyBagController', MyBagController);
 
-  MyBagController.$inject = ["$filter", "discs", "myDiscs", "$anchorScroll", "DiscFactory", "user", "$timeout"];
+  MyBagController.$inject = ["$filter", "discs", "myDiscs", "$anchorScroll", "DiscFactory", "user", "$timeout", "$stateParams"];
 
-  function MyBagController($filter, discs, myDiscs, $anchorScroll, DiscFactory, user, $timeout) {
+  function MyBagController($filter, discs, myDiscs, $anchorScroll, DiscFactory, user, $timeout, $stateParams) {
     var vm = this
     vm.refilter = refilter
     vm.discs = discs
@@ -24,6 +24,8 @@
     vm.pageChanged = pageChanged
     vm.removeDisc = removeDisc
     vm.user = user
+
+    vm.idParam = $stateParams.id
 
     vm.page = 1
 
