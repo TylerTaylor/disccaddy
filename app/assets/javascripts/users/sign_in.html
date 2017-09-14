@@ -5,6 +5,10 @@
   <!-- sign in form -->
   <form ng-if="!currentUser.username" ng-submit="vm.login()" class="user-form">
 
+    <div ng-if="error_message" class="alert alert-danger">
+      <div>{{ error_message }}</div>
+    </div>
+
     <div class="form-group">
       <label for="username" class="col-sm-3 control-label">Username</label>
       <div class="col-sm-9">
