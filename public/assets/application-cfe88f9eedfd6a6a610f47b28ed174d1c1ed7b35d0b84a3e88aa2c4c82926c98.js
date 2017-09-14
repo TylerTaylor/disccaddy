@@ -50103,7 +50103,7 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
 // source: app/assets/javascripts/components/navi.html
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("components/navi.html", '<nav class="navbar navbar-default navbar-fixed-top">\n  <div class="container-fluid">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class="navbar-header">\n      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">\n        <span class="sr-only">Toggle navigation</span>\n        <span class="icon-bar"></span>\n        <span class="icon-bar"></span>\n        <span class="icon-bar"></span>\n      </button>\n      <a class="navbar-brand" href="#">DiscCaddy</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\n      <!-- left side of nav -->\n      <ul class="nav navbar-nav">\n        <li><a href="#" ui-sref="discs.allDiscs">Discs</a></li>\n      </ul>\n\n      <!-- right side of nav -->\n      <ul class="nav navbar-nav navbar-right">\n        <!-- <li ng-if="!!currentUser.username">\n          <a href="">Logged in as: {{ currentUser.username }} </a>\n        </li>\n        <li ng-if="!!currentUser.username">\n          <a href ng-click="vm.logout()">Log Out</a>\n        </li>\n        <li ng-if="!currentUser.username">\n          <a href="#" ui-sref="users.signIn">Sign In</a>\n        </li> -->\n        <li ng-hide="signedIn()"><a ui-sref="users.signIn">Login</a></li>\n        <li ng-hide="signedIn()"><a ui-sref="users.register">Register</a></li>\n        <li ng-show="signedIn()"><a href="#">Logged in as: {{ users.username }}</a></li>\n        <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>\n      </ul> <!-- /.navbar-right -->\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>')
+  $templateCache.put("components/navi.html", '<nav class="navbar navbar-default navbar-fixed-top">\n  <div class="container-fluid">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class="navbar-header">\n      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">\n        <span class="sr-only">Toggle navigation</span>\n        <span class="icon-bar"></span>\n        <span class="icon-bar"></span>\n        <span class="icon-bar"></span>\n      </button>\n      <a class="navbar-brand" href="#">DiscCaddy</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\n      <!-- left side of nav -->\n      <ul class="nav navbar-nav">\n        <li><a href="#" ui-sref="discs.allDiscs">Discs</a></li>\n      </ul>\n\n      <!-- right side of nav -->\n      <ul class="nav navbar-nav navbar-right">\n        <!-- <li ng-if="!!currentUser.username">\n          <a href="">Logged in as: {{ currentUser.username }} </a>\n        </li>\n        <li ng-if="!!currentUser.username">\n          <a href ng-click="vm.logout()">Log Out</a>\n        </li>\n        <li ng-if="!currentUser.username">\n          <a href="#" ui-sref="users.signIn">Sign In</a>\n        </li> -->\n        <li ng-hide="signedIn()"><a ui-sref="users.signIn">Login</a></li>\n        <li ng-hide="signedIn()"><a ui-sref="users.register">Register</a></li>\n\n        <!-- could do ng-if users.username here... but i want it to just show up and not have to do this -->\n        <li ng-if="$root.currentUser" ng-show="signedIn()"><a href="#">Logged in as: {{ $root.currentUser.username }}</a></li>\n        <!-- <li ng-show="signedIn()" ng-if="users.username"><a href="#">Logged in as: {{ users.username }}</a></li> -->\n        <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>\n      </ul> <!-- /.navbar-right -->\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>')
 }]);
 
 (function () {
@@ -50481,7 +50481,7 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
 // source: app/assets/javascripts/home/home.html
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("home/home.html", '<!-- <div class="center">\n  <h1>Home</h1>\n  <h3 ng-if="!!currentUser.username">Logged in as: {{ currentUser.username }}</h3>\n\n  <button ng-if="!!currentUser.username" ng-click="vm.logout()" class="btn btn-primary">Logout</button>\n</div> -->\n\n<div class="flex-container2">\n  <a href ui-sref="discs.allDiscs" class="flex-container3">\n    <img src="/images/AllDiscsIcon.gif" class="home-icon" alt="View All Discs">\n    <br>\n    <span class="icon-links">View All Discs</span>\n  </a>\n  <a href ui-sref="discs.myBag({id: currentUser.id})" class="flex-container3">\n    <img src="/images/MyBagIcon.gif" class="home-icon" alt="View My Discs">\n    <br>\n    <span class="icon-links">View My Discs</span>\n  </a>\n</div>')
+  $templateCache.put("home/home.html", '<!-- <div class="center">\n  <h1>Home</h1>\n  <h3 ng-if="!!currentUser.username">Logged in as: {{ currentUser.username }}</h3>\n\n  <button ng-if="!!currentUser.username" ng-click="vm.logout()" class="btn btn-primary">Logout</button>\n</div> -->\n\n<div class="flex-container2">\n  <a href ui-sref="discs.allDiscs" class="flex-container3">\n    <img src="/images/AllDiscsIcon.gif" class="home-icon" alt="View All Discs">\n    <br>\n    <span class="icon-links">View All Discs</span>\n  </a>\n\n  <!-- If we don\'t have a user, they should be redirected to sign in -->\n  <a href ng-if="!currentUser.id" ui-sref="users.signIn" class="flex-container3">\n    <img src="/images/MyBagIcon.gif" class="home-icon" alt="Sign in to view your bag">\n    <br>\n    <span class="icon-links">View My Discs</span>\n  </a>\n\n  <!-- If we have a user, link to their bag -->\n  <a href ng-if="currentUser.id" ui-sref="discs.myBag({id: currentUser.id})" class="flex-container3">\n    <img src="/images/MyBagIcon.gif" class="home-icon" alt="View My Discs">\n    <br>\n    <span class="icon-links">View My Discs</span>\n  </a>\n</div>')
 }]);
 
 (function () {
@@ -50581,14 +50581,14 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
 // source: app/assets/javascripts/users/register.html
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("users/register.html", '<div class="form-div center">\n\n  <h1>Sign Up</h1>\n  <br>\n  <!-- registration form -->\n  <form novalidate="true" name="form" ng-if="!currentUser.username" ng-submit="vm.register()">\n\n    <div class="form-group">\n      <div class="validation-msg" ng-messages="form.username.$error" ng-if="form.username.$touched">\n        <div ng-message="required">&#8226; You must enter a username</div>\n        <div ng-message="minlength">&#8226; Must be more than 2 characters</div>\n      </div>\n\n      <label for="username" class="col-sm-3 control-label">Username</label>\n      <div class="col-sm-9">\n        <input type="text"\n             name="username"\n             ng-model="vm.newUser.username"\n             required="required"\n             minlength="3"\n             class="form-control"><br>\n      </div>\n    </div>\n\n    <div class="form-group">\n      <div class="validation-msg" ng-messages="form.email.$error" ng-if="form.email.$touched">\n        <div ng-message="email">&#8226; Please enter valid email address</div>\n      </div>\n\n      <label for="email" class="col-sm-3 control-label">BELLEFLELFELEmail</label>\n      <div class="col-md-9">\n        <input type="email" name="email"\n             ng-model="vm.newUser.email"\n             ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/"\n             class="form-control"><br> <!-- pattern not working ATM -->\n      </div>\n    </div>\n\n    <div class="form-group">\n      <div class="validation-msg"\n           ng-messages="form.password.$error"\n           ng-if="form.password.$touched">\n        <div ng-message="required">&#8226; Password is required</div>\n        <div ng-message="minlength">&#8226; Password must be at least 8 characters</div>\n      </div>\n\n      <label for="password" class="col-sm-3 control-label">Password</label>\n      <div class="col-md-9">\n        <input type="password"\n               ng-model="vm.newUser.password"\n               required="required"\n               minlength="8"\n               name="password"\n               class="form-control"> <br>\n      </div>\n    </div>\n\n    <button type="submit" class="btn btn-default">Register</button>\n  </form>\n</div>')
+  $templateCache.put("users/register.html", '<div class="form-div center">\n\n  <h1>Sign Up</h1>\n  <br>\n  <!-- registration form -->\n  <form novalidate="true" name="form" ng-if="!currentUser.username" ng-submit="vm.register()">\n\n    <div class="form-group">\n      <div class="validation-msg" ng-messages="form.username.$error" ng-if="form.username.$touched">\n        <div ng-message="required">&#8226; You must enter a username</div>\n        <div ng-message="minlength">&#8226; Must be more than 2 characters</div>\n      </div>\n\n      <label for="username" class="col-sm-3 control-label">Username</label>\n      <div class="col-sm-9">\n        <input type="text"\n             name="username"\n             ng-model="vm.newUser.username"\n             required="required"\n             minlength="3"\n             class="form-control"><br>\n      </div>\n    </div>\n\n    <div class="form-group">\n      <div class="validation-msg" ng-messages="form.email.$error" ng-if="form.email.$touched">\n        <div ng-message="email">&#8226; Please enter valid email address</div>\n      </div>\n\n      <label for="email" class="col-sm-3 control-label">Email</label>\n      <div class="col-md-9">\n        <input type="email" name="email"\n             ng-model="vm.newUser.email"\n             ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/"\n             class="form-control"><br> <!-- pattern not working ATM -->\n      </div>\n    </div>\n\n    <div class="form-group">\n      <div class="validation-msg"\n           ng-messages="form.password.$error"\n           ng-if="form.password.$touched">\n        <div ng-message="required">&#8226; Password is required</div>\n        <div ng-message="minlength">&#8226; Password must be at least 8 characters</div>\n      </div>\n\n      <label for="password" class="col-sm-3 control-label">Password</label>\n      <div class="col-md-9">\n        <input type="password"\n               ng-model="vm.newUser.password"\n               required="required"\n               minlength="8"\n               name="password"\n               class="form-control"> <br>\n      </div>\n    </div>\n\n    <button type="submit" class="btn btn-default">Register</button>\n  </form>\n</div>')
 }]);
 
 // Angular Rails Template
 // source: app/assets/javascripts/users/sign_in.html
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("users/sign_in.html", '<div class="form-div center">\n\n  <h1>Sign In</h1>\n  <br>\n  <!-- sign in form -->\n  <form ng-if="!currentUser.username" ng-submit="vm.login()" class="user-form">\n\n    <div class="form-group">\n      <label for="username" class="col-sm-3 control-label">Username</label>\n      <div class="col-sm-9">\n        <input type="text" ng-model="vm.userForm.username" class="form-control"> <br>\n      </div>\n    </div>\n    \n    <div class="form-group">\n      <label for="email" class="col-sm-3 control-label">Email</label>\n      <div class="col-md-9">\n        <input type="email" ng-model="vm.userForm.email" class="form-control"> <br>\n      </div>\n    </div>\n    \n    <div class="form-group">\n      <label for="password" class="col-sm-3 control-label">Password</label>\n      <div class="col-md-9">\n        <input type="password" ng-model="vm.userForm.password" class="form-control"> <br>\n      </div>\n    </div>\n    \n    <button type="submit" class="btn btn-default">Sign In</button>\n  </form>\n\n</div>')
+  $templateCache.put("users/sign_in.html", '<div class="form-div center">\n\n  <h1>Sign In</h1>\n  <br>\n  <!-- sign in form -->\n  <form ng-if="!currentUser.username" ng-submit="vm.login()" class="user-form">\n\n    <div ng-if="error_message" class="alert alert-danger">\n      <div>{{ error_message }}</div>\n    </div>\n\n    <div class="form-group">\n      <label for="username" class="col-sm-3 control-label">Username</label>\n      <div class="col-sm-9">\n        <input type="text" ng-model="vm.userForm.username" class="form-control" autofocus> <br>\n      </div>\n    </div>\n\n    <div class="form-group">\n      <label for="email" class="col-sm-3 control-label">Email</label>\n      <div class="col-md-9">\n        <input type="email" ng-model="vm.userForm.email" class="form-control"> <br>\n      </div>\n    </div>\n\n    <div class="form-group">\n      <label for="password" class="col-sm-3 control-label">Password</label>\n      <div class="col-md-9">\n        <input type="password" ng-model="vm.userForm.password" class="form-control"> <br>\n      </div>\n    </div>\n\n    <button type="submit" class="btn btn-default">Sign In</button>\n  </form>\n\n</div>')
 }]);
 
 (function () {
@@ -50613,6 +50613,9 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
       $scope.signedIn = Auth.isAuthenticated
       $scope.logout = Auth.logout
 
+      // does this ever get called??
+
+      // Check for current user
       Auth.currentUser()
         .then(function(user) {
           $rootScope.currentUser = user
@@ -50621,6 +50624,7 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
           console.log(error)
         })
 
+      // Login
       function login() {
         var config = {
           headers: {
@@ -50631,16 +50635,19 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
         Auth.login(vm.userForm, config)
           .then(function(user) {
             $rootScope.currentUser = user // this is being lost on refresh
+            vm.username = user.username
             $cookies.putObject("currentUser", user)
 
             console.log("Just successfully signed in via users controller, now redirecting")
             $state.go('home')
             $state.reload()
           }, function(error) {
+            $scope.error_message = error.data.error
             console.log(error)
           })
-      }
+      } // end login()
 
+      // Register
       function register() {
         var config = {
           headers: {
@@ -50651,16 +50658,20 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
         Auth.register(vm.newUser, config)
           .then(function(registeredUser) {
             $rootScope.currentUser = registeredUser
-            
+            vm.username = registeredUser.username
+
+            console.log("We are in the Auth.register function...redirecting home?")
             $state.go('home')
           }, function(error) {
             console.log(error)
           })
-      }
+      } // end register()
 
+      // Listen for logout event and handle everything here
       $rootScope.$on('devise:logout', function(event, user) {
         $rootScope.currentUser = {}
         $cookies.remove('currentUser')
+        $state.reload()
         $state.go('home')
       })
     }
