@@ -49,6 +49,7 @@
             $state.go('home')
             $state.reload()
           }, function(error) {
+            $scope.error_message = error.data.error
             console.log(error)
           })
       } // end login()
