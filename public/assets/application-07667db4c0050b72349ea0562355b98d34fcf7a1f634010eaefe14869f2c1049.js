@@ -50340,9 +50340,9 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
     //                                 MyBagController])
     .controller('MyBagController', MyBagController);
 
-  MyBagController.$inject = ["$filter", "discs", "myDiscs", "$anchorScroll", "DiscFactory", "user", "$timeout"];
+  MyBagController.$inject = ["$filter", "discs", "myDiscs", "$anchorScroll", "DiscFactory", "user", "$timeout", "$stateParams"];
 
-  function MyBagController($filter, discs, myDiscs, $anchorScroll, DiscFactory, user, $timeout) {
+  function MyBagController($filter, discs, myDiscs, $anchorScroll, DiscFactory, user, $timeout, $stateParams) {
     var vm = this
     vm.refilter = refilter
     vm.discs = discs
@@ -50350,6 +50350,8 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
     vm.pageChanged = pageChanged
     vm.removeDisc = removeDisc
     vm.user = user
+
+    vm.idParam = $stateParams.id
 
     vm.page = 1
 
@@ -50392,7 +50394,7 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
 // source: app/assets/javascripts/discs/my_bag.html
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("discs/my_bag.html", '<h4 class="neg">MY BAG</h4>\n\n<div class="discs-list">\n  <input ng-model="vm.search" ng-change="vm.refilter()" placeholder="Search"/> \n  <!-- <a href="" ui-sref="discs.addToBag({ id: currentUser.id })">+ Add Disc</a> -->\n  <p>\n    Filter by: \n    <a href ng-click="typeFilter={disc_type: \'distance\'}">Distance</a> |\n    <a href ng-click="typeFilter={disc_type: \'fairway\'}">Fairway</a> |\n    <a href ng-click="typeFilter={disc_type: \'midrange\'}">Midrange</a> |\n    <a href ng-click="typeFilter={disc_type: \'putter\'}">Putters</a>\n  </p>\n\n  <!-- <ul>\n    <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1)">\n      <panel disc="disc"></panel> - {{disc.disc_type}} - {{disc.selected_weight}}\n    </li>\n  </ul> -->\n  \n  <table class="table table-striped">\n    <tr ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1) | orderBy:\'name\'">\n      <td>\n        <panel disc="disc"></panel> - {{disc.disc_type}} - {{disc.selected_weight}}\n      </td>\n      <td>\n        <!-- <a href="" class="padright">+</a> -->\n        <a href="" ng-click="vm.removeDisc(disc)">Remove</a>\n      </td>\n    </tr>\n  </table>\n\n</div>\n\n<uib-pagination \n  class="pagination-sm pagination pull-right" \n  total-items="vm.filteredList.length" \n  ng-model="vm.page"\n  max-size=\'5\' \n  previous-text="&lsaquo; Prev" \n  next-text="Next &rsaquo;"\n  rotate=\'true\'\n  boundary-links=\'true\' \n  items-per-page=30\n  ng-change="vm.pageChanged()">\n</uib-pagination>')
+  $templateCache.put("discs/my_bag.html", '<h4 class="neg" ng-if="$root.currentUser.id == vm.idParam">MY BAG</h4>\n<!-- TODO: For now it\'s just not showing "MY BAG" if it\'s not the current user\'s bag -->\n<!-- We should probably display "USERNAME\'s bag" -->\n\n<div class="discs-list">\n  <input ng-model="vm.search" ng-change="vm.refilter()" placeholder="Search"/>\n  <!-- <a href="" ui-sref="discs.addToBag({ id: currentUser.id })">+ Add Disc</a> -->\n  <p>\n    Filter by:\n    <a href ng-click="typeFilter={disc_type: \'distance\'}">Distance</a> |\n    <a href ng-click="typeFilter={disc_type: \'fairway\'}">Fairway</a> |\n    <a href ng-click="typeFilter={disc_type: \'midrange\'}">Midrange</a> |\n    <a href ng-click="typeFilter={disc_type: \'putter\'}">Putters</a>\n  </p>\n\n  <!-- <ul>\n    <li ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1)">\n      <panel disc="disc"></panel> - {{disc.disc_type}} - {{disc.selected_weight}}\n    </li>\n  </ul> -->\n\n  <table class="table table-striped">\n    <tr ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1) | orderBy:\'name\'">\n      <td>\n        <panel disc="disc"></panel> - {{disc.disc_type}} - {{disc.selected_weight}}\n      </td>\n      <td>\n        <!-- <a href="" class="padright">+</a> -->\n        <a href="" ng-if="$root.currentUser.id == vm.idParam" ng-click="vm.removeDisc(disc)">Remove</a>\n      </td>\n    </tr>\n  </table>\n\n</div>\n\n<uib-pagination\n  class="pagination-sm pagination pull-right"\n  total-items="vm.filteredList.length"\n  ng-model="vm.page"\n  max-size=\'5\'\n  previous-text="&lsaquo; Prev"\n  next-text="Next &rsaquo;"\n  rotate=\'true\'\n  boundary-links=\'true\'\n  items-per-page=30\n  ng-change="vm.pageChanged()">\n</uib-pagination>')
 }]);
 
 (function () {
@@ -50485,7 +50487,7 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
 }]);
 
 (function () {
-  
+
   'use strict'
 
   angular
@@ -50581,14 +50583,14 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
 // source: app/assets/javascripts/users/register.html
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("users/register.html", '<div class="form-div center">\n\n  <h1>Sign Up</h1>\n  <br>\n  <!-- registration form -->\n  <form novalidate="true" name="form" ng-if="!currentUser.username" ng-submit="vm.register()">\n\n    <div class="form-group">\n      <div class="validation-msg" ng-messages="form.username.$error" ng-if="form.username.$touched">\n        <div ng-message="required">&#8226; You must enter a username</div>\n        <div ng-message="minlength">&#8226; Must be more than 2 characters</div>\n      </div>\n\n      <label for="username" class="col-sm-3 control-label">Username</label>\n      <div class="col-sm-9">\n        <input type="text"\n             name="username"\n             ng-model="vm.newUser.username"\n             required="required"\n             minlength="3"\n             class="form-control"><br>\n      </div>\n    </div>\n\n    <div class="form-group">\n      <div class="validation-msg" ng-messages="form.email.$error" ng-if="form.email.$touched">\n        <div ng-message="email">&#8226; Please enter valid email address</div>\n      </div>\n\n      <label for="email" class="col-sm-3 control-label">Email</label>\n      <div class="col-md-9">\n        <input type="email" name="email"\n             ng-model="vm.newUser.email"\n             ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/"\n             class="form-control"><br> <!-- pattern not working ATM -->\n      </div>\n    </div>\n\n    <div class="form-group">\n      <div class="validation-msg"\n           ng-messages="form.password.$error"\n           ng-if="form.password.$touched">\n        <div ng-message="required">&#8226; Password is required</div>\n        <div ng-message="minlength">&#8226; Password must be at least 8 characters</div>\n      </div>\n\n      <label for="password" class="col-sm-3 control-label">Password</label>\n      <div class="col-md-9">\n        <input type="password"\n               ng-model="vm.newUser.password"\n               required="required"\n               minlength="8"\n               name="password"\n               class="form-control"> <br>\n      </div>\n    </div>\n\n    <button type="submit" class="btn btn-default">Register</button>\n  </form>\n</div>')
+  $templateCache.put("users/register.html", '<div class="form-div center">\n\n  <h1>Sign Up</h1>\n  <br>\n  <!-- registration form -->\n  <form novalidate="true" name="form" ng-if="!currentUser.username" ng-submit="vm.register()">\n\n    <div ng-if="vm.errors.length > 0" class="alert alert-danger">\n      <div ng-repeat="message in vm.errors" class="capitalize">\n        {{ message }}\n      </div>\n    </div>\n\n    <div class="form-group">\n      <div class="validation-msg" ng-messages="form.username.$error" ng-if="form.username.$touched">\n        <div ng-message="required">&#8226; You must enter a username</div>\n        <div ng-message="minlength">&#8226; Must be more than 2 characters</div>\n      </div>\n\n      <label for="username" class="col-sm-3 control-label">Username</label>\n      <div class="col-sm-9">\n        <input type="text"\n             name="username"\n             ng-model="vm.newUser.username"\n             required="required"\n             minlength="3"\n             class="form-control"><br>\n      </div>\n    </div>\n\n    <div class="form-group">\n      <div class="validation-msg" ng-messages="form.email.$error" ng-if="form.email.$touched">\n        <div ng-message="email">&#8226; Please enter valid email address</div>\n      </div>\n\n      <label for="email" class="col-sm-3 control-label">Email</label>\n      <div class="col-md-9">\n        <input type="email" name="email"\n             ng-model="vm.newUser.email"\n             ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/"\n             class="form-control"><br> <!-- pattern not working ATM -->\n      </div>\n    </div>\n\n    <div class="form-group">\n      <div class="validation-msg"\n           ng-messages="form.password.$error"\n           ng-if="form.password.$touched">\n        <div ng-message="required">&#8226; Password is required</div>\n        <div ng-message="minlength">&#8226; Password must be at least 8 characters</div>\n      </div>\n\n      <label for="password" class="col-sm-3 control-label">Password</label>\n      <div class="col-md-9">\n        <input type="password"\n               ng-model="vm.newUser.password"\n               required="required"\n               minlength="8"\n               name="password"\n               class="form-control"> <br>\n      </div>\n    </div>\n\n    <button type="submit" class="btn btn-default">Register</button>\n  </form>\n</div>')
 }]);
 
 // Angular Rails Template
 // source: app/assets/javascripts/users/sign_in.html
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("users/sign_in.html", '<div class="form-div center">\n\n  <h1>Sign In</h1>\n  <br>\n  <!-- sign in form -->\n  <form ng-if="!currentUser.username" ng-submit="vm.login()" class="user-form">\n\n    <div class="form-group">\n      <label for="username" class="col-sm-3 control-label">Username</label>\n      <div class="col-sm-9">\n        <input type="text" ng-model="vm.userForm.username" class="form-control" autofocus> <br>\n      </div>\n    </div>\n\n    <div class="form-group">\n      <label for="email" class="col-sm-3 control-label">Email</label>\n      <div class="col-md-9">\n        <input type="email" ng-model="vm.userForm.email" class="form-control"> <br>\n      </div>\n    </div>\n\n    <div class="form-group">\n      <label for="password" class="col-sm-3 control-label">Password</label>\n      <div class="col-md-9">\n        <input type="password" ng-model="vm.userForm.password" class="form-control"> <br>\n      </div>\n    </div>\n\n    <button type="submit" class="btn btn-default">Sign In</button>\n  </form>\n\n</div>')
+  $templateCache.put("users/sign_in.html", '<div class="form-div center">\n\n  <h1>Sign In</h1>\n  <br>\n  <!-- sign in form -->\n  <form ng-if="!currentUser.username" ng-submit="vm.login()" class="user-form">\n\n    <div ng-if="error_message" class="alert alert-danger">\n      <div>{{ error_message }}</div>\n    </div>\n\n    <div class="form-group">\n      <label for="username" class="col-sm-3 control-label">Username</label>\n      <div class="col-sm-9">\n        <input type="text" ng-model="vm.userForm.username" class="form-control" autofocus> <br>\n      </div>\n    </div>\n\n    <div class="form-group">\n      <label for="email" class="col-sm-3 control-label">Email</label>\n      <div class="col-md-9">\n        <input type="email" ng-model="vm.userForm.email" class="form-control"> <br>\n      </div>\n    </div>\n\n    <div class="form-group">\n      <label for="password" class="col-sm-3 control-label">Password</label>\n      <div class="col-md-9">\n        <input type="password" ng-model="vm.userForm.password" class="form-control"> <br>\n      </div>\n    </div>\n\n    <button type="submit" class="btn btn-default">Sign In</button>\n  </form>\n\n</div>')
 }]);
 
 (function () {
@@ -50613,7 +50615,7 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
       $scope.signedIn = Auth.isAuthenticated
       $scope.logout = Auth.logout
 
-      // does this ever get called??
+      vm.errors = [];
 
       // Check for current user
       Auth.currentUser()
@@ -50642,6 +50644,7 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
             $state.go('home')
             $state.reload()
           }, function(error) {
+            $scope.error_message = error.data.error
             console.log(error)
           })
       } // end login()
@@ -50662,6 +50665,16 @@ angular.module("templates").run(["$templateCache", function($templateCache) {
             console.log("We are in the Auth.register function...redirecting home?")
             $state.go('home')
           }, function(error) {
+            let errors = error.data.errors
+            let errorKeys = Object.keys(errors)
+            let errorValues = Object.values(errors)
+            let l = errorKeys.length
+
+            for(let i = 0; i < l; i++){
+              let message = errorKeys[i] + ' ' + errorValues[i]
+              vm.errors.push(message)
+            }
+
             console.log(error)
           })
       } // end register()
