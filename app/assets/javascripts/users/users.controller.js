@@ -20,7 +20,7 @@
       $scope.signedIn = Auth.isAuthenticated
       $scope.logout = Auth.logout
 
-      // does this ever get called??
+      vm.errors = [];
 
       // Check for current user
       Auth.currentUser()
@@ -70,6 +70,16 @@
             console.log("We are in the Auth.register function...redirecting home?")
             $state.go('home')
           }, function(error) {
+            let errors = error.data.errors
+            let errorKeys = Object.keys(errors)
+            let errorValues = Object.values(errors)
+            let l = errorKeys.length
+
+            for(let i = 0; i < l; i++){
+              let message = errorKeys[i] + ' ' + errorValues[i]
+              vm.errors.push(message)
+            }
+
             console.log(error)
           })
       } // end register()
