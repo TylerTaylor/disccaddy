@@ -5,10 +5,6 @@
   <!-- registration form -->
   <form novalidate="true" name="form" ng-if="!currentUser.username" ng-submit="vm.register()">
 
-    <!-- <div ng-if="error_message" class="alert alert-danger">
-      <div>{{ error_message }}</div>
-    </div> -->
-
     <div ng-if="vm.errors.length > 0" class="alert alert-danger">
       <div ng-repeat="message in vm.errors" class="capitalize">
         {{ message }}
