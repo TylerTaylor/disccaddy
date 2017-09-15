@@ -1,3 +1,13 @@
+/*
+GENERAL STYLING
+POSITIONING
+DISCS
+NAVBAR
+ICONS
+FORMS
+TOOLTIP
+*/
+
 /* GENERAL STYLING */
 
 body {
@@ -48,6 +58,10 @@ ul {
   color: red;
 }
 
+.capitalize::first-letter {
+  text-transform: capitalize;
+}
+
 /* POSITIONING */
 
 .center {
@@ -62,6 +76,8 @@ ul {
 .padright {
   padding-right: 10px;
 }
+
+
 
 /* DISCS */
 
@@ -133,6 +149,8 @@ ul {
   text-align: right;
 }
 
+
+
 /* NAVBAR */
 
 .navbar, .navbar-default, .navbar-fixed-top {
@@ -153,6 +171,8 @@ ul {
   color: #426044;
 }
 
+
+
 /* ICONS */
 
 .home-icon {
@@ -167,6 +187,8 @@ ul {
   letter-spacing: 10px;
 }
 
+
+
 /* FORMS */
 
 .form-div {
@@ -174,6 +196,8 @@ ul {
   max-width: 35%;
   padding: 20px 0px 35px 0px;
 }
+
+
 
 /* TOOLTIP */
 
