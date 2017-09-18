@@ -220,3 +220,63 @@ ul {
 .tooltip-wrap:hover .tooltip-content {
   display: inline;
 }
+
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 460px) {
+
+  body {
+    background-image: none;
+    background-color: teal;
+    max-width: 100%;
+  }
+
+  .flex-container2 {
+    padding: 0px;
+    margin-top: -8px;
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+  }
+
+  .flex-container2 > * {
+    flex: 1 1 auto;
+  }
+
+  .flex-container3 {
+    display: flex;
+    align-items: center;
+  }
+
+  .home-icon {
+    max-width: 100%;
+    height: 35vh;
+  }
+
+  br {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+
+  body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+}
+
+@media screen and (max-width: 1090px) {
+
+  body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+}
