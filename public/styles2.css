@@ -232,6 +232,7 @@ ul {
     background-image: none;
     max-width: 100%;
     font-size: 0.95em;
+    padding-top: 50px;
   }
 
   .navbar, .navbar-default, .navbar-fixed-top {
@@ -268,6 +269,43 @@ ul {
 
   .icon-links {
     color: black;
+  }
+
+  /* disc index */
+
+  h4 {
+    display: none;
+  }
+
+  p.center {
+    margin-bottom: 1%;
+  }
+
+  .container {
+    /*height: 90vh;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .discs-container {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .search-filter-controls {
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .search-filter-controls p {
+    margin: 0px;
+  }
+
+  .search-bar {
+    align-self: center;
   }
 
 }

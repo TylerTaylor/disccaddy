@@ -1,12 +1,15 @@
 <h4 class="neg">ALL DISCS</h4>
-<input ng-model="vm.search" ng-change="vm.refilter()" placeholder="Search"/>
-<p>
-  Filter by: 
-  <a href ng-click="typeFilter={disc_type: 'distance'}">Distance</a> |
-  <a href ng-click="typeFilter={disc_type: 'fairway'}">Fairway</a> |
-  <a href ng-click="typeFilter={disc_type: 'midrange'}">Midrange</a> |
-  <a href ng-click="typeFilter={disc_type: 'putter'}">Putters</a>
-</p>
+
+<div class="search-filter-controls">
+  <input ng-model="vm.search" ng-change="vm.refilter()" placeholder="Search" class="search-bar"/>
+  <p class="filters">
+    Filter by:
+    <a href ng-click="typeFilter={disc_type: 'distance'}">Distance</a> |
+    <a href ng-click="typeFilter={disc_type: 'fairway'}">Fairway</a> |
+    <a href ng-click="typeFilter={disc_type: 'midrange'}">Midrange</a> |
+    <a href ng-click="typeFilter={disc_type: 'putter'}">Putters</a>
+  </p>
+</div>
 
 <div class="discs-list">
 
@@ -14,7 +17,7 @@
     <tr ng-repeat="disc in vm.filteredList | filter:typeFilter | orderBy:'name' | limitTo:20:20*(vm.page-1) ">
       <td>
         <panel disc="disc" user="currentUser"></panel> -
-        <a href ui-sref="discs.addToBag({ id: currentUser.id, discId: disc.id })" 
+        <a href ui-sref="discs.addToBag({ id: currentUser.id, discId: disc.id })"
                 class="tooltip-wrap">
           <span class="glyphicon glyphicon-plus"></span>
           <span class="tooltip-content">Add To Bag</span>
@@ -22,18 +25,21 @@
       </td>
     </tr>
   </table>
-  
+
 </div>
 
-<uib-pagination 
-  class="pagination-sm pagination pull-right" 
-  total-items="vm.filteredList.length" 
+<uib-pagination
+  class="pagination-sm pagination pull-right"
+  total-items="vm.filteredList.length"
   ng-model="vm.page"
-  max-size='5' 
-  previous-text="&lsaquo; Prev" 
+  max-size='3'
+  previous-text="&lsaquo; Prev"
   next-text="Next &rsaquo;"
+  first-text="&lsaquo;&lsaquo;"
+  last-text="&rsaquo;&rsaquo;"
+  force-ellipses="true"
   rotate='true'
-  boundary-links='true' 
+  boundary-links='true'
   items-per-page=30
   ng-change="vm.pageChanged()">
 </uib-pagination>
