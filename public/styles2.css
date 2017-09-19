@@ -221,6 +221,8 @@ ul {
   display: inline;
 }
 
+
+
 /* SEARCH-FILTER-CONTROLS */
 
 .search-filter-controls {
@@ -237,6 +239,8 @@ ul {
 .search-bar {
   align-self: center;
 }
+
+
 
 /* MEDIA QUERIES */
 
@@ -306,6 +310,13 @@ ul {
   .discs-container {
     width: 100%;
     padding: 0px;
+  }
+
+  .disc-item {
+    display: flex;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    flex-wrap: wrap;
   }
 
 }

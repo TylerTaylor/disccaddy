@@ -22,7 +22,7 @@
   </ul> -->
 
   <table class="table table-striped">
-    <tr ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1) | orderBy:'name'">
+    <tr ng-repeat="disc in vm.filteredList | filter:typeFilter | limitTo:20:20*(vm.page-1) | orderBy:'name'" class="disc-item">
       <td>
         <panel disc="disc"></panel> - {{disc.disc_type}} - {{disc.selected_weight}}
       </td>
