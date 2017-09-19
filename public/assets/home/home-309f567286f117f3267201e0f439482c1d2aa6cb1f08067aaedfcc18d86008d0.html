@@ -1,0 +1,32 @@
+<!-- <div class="center">
+  <h1>Home</h1>
+  <h3 ng-if="!!currentUser.username">Logged in as: {{ currentUser.username }}</h3>
+
+  <button ng-if="!!currentUser.username" ng-click="vm.logout()" class="btn btn-primary">Logout</button>
+</div> -->
+
+<!-- our main flex container... we want everything to be contained in here right?? -->
+<div class="flex-container2">
+
+  <!-- each of these are "flex-container3" ... should be our flex ITEMS -->
+  <a href ui-sref="discs.allDiscs" class="flex-container3">
+    <img src="/images/AllDiscsIcon.gif" class="home-icon" alt="View All Discs">
+    <br>
+    <span class="icon-links">View All Discs</span>
+  </a>
+
+  <!-- If we don't have a user, they should be redirected to sign in -->
+  <a href ng-if="!currentUser.id" ui-sref="users.signIn" class="flex-container3">
+    <img src="/images/MyBagIcon.gif" class="home-icon" alt="Sign in to view your bag">
+    <br>
+    <span class="icon-links">View My Discs</span>
+  </a>
+
+  <!-- If we have a user, link to their bag -->
+  <a href ng-if="currentUser.id" ui-sref="discs.myBag({id: currentUser.id})" class="flex-container3">
+    <img src="/images/MyBagIcon.gif" class="home-icon" alt="View My Discs">
+    <br>
+    <span class="icon-links">View My Discs</span>
+  </a>
+
+</div>
