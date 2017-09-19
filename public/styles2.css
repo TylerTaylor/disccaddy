@@ -221,7 +221,22 @@ ul {
   display: inline;
 }
 
+/* SEARCH-FILTER-CONTROLS */
 
+.search-filter-controls {
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-filter-controls p {
+  margin: 0px;
+}
+
+.search-bar {
+  align-self: center;
+}
 
 /* MEDIA QUERIES */
 
@@ -232,7 +247,7 @@ ul {
     background-image: none;
     max-width: 100%;
     font-size: 0.95em;
-    padding-top: 50px;
+    /*padding-top: 50px;*/
   }
 
   .navbar, .navbar-default, .navbar-fixed-top {
@@ -293,21 +308,6 @@ ul {
     padding: 0px;
   }
 
-  .search-filter-controls {
-    margin-bottom: 1%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .search-filter-controls p {
-    margin: 0px;
-  }
-
-  .search-bar {
-    align-self: center;
-  }
-
 }
 
 /* Phones in landscape mode ... might need to check if 767 applies to newer tall phones like note 8 */
@@ -317,6 +317,7 @@ ul {
     background-image: none;
     height: 100vh;
     font-size: 0.95em;
+    padding-top: 50px;
   }
 
   .navbar, .navbar-default, .navbar-fixed-top {
@@ -348,6 +349,23 @@ ul {
     color: black;
   }
 
+  /* disc index */
+
+  h4 {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .discs-container {
+    width: 100%;
+    padding: 0px;
+  }
+
 }
 
 /* Tablets */
@@ -358,6 +376,17 @@ ul {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .discs-container {
+    width: 100%;
+    /*padding: 0px;*/
   }
 
 }
