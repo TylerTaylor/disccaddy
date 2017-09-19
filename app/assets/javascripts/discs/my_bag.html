@@ -39,9 +39,12 @@
   class="pagination-sm pagination pull-right"
   total-items="vm.filteredList.length"
   ng-model="vm.page"
-  max-size='5'
+  max-size='3'
   previous-text="&lsaquo; Prev"
   next-text="Next &rsaquo;"
+  first-text="&lsaquo;&lsaquo;"
+  last-text="&rsaquo;&rsaquo;"
+  force-ellipses="true"
   rotate='true'
   boundary-links='true'
   items-per-page=30
