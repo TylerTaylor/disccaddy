@@ -225,12 +225,18 @@ ul {
 
 /* MEDIA QUERIES */
 
+/* Phones in portrait mode */
 @media screen and (max-width: 460px) {
 
   body {
     background-image: none;
-    background-color: teal;
     max-width: 100%;
+    font-size: 0.95em;
+  }
+
+  .navbar, .navbar-default, .navbar-fixed-top {
+    background-color: rgba(255, 255, 255, 1);
+    font-size: 1.75em;
   }
 
   .flex-container2 {
@@ -253,15 +259,62 @@ ul {
   .home-icon {
     max-width: 100%;
     height: 35vh;
+    border: 8px solid black;
   }
 
   br {
     display: none;
   }
 
+  .icon-links {
+    color: black;
+  }
+
 }
 
-@media screen and (max-width: 767px) {
+/* Phones in landscape mode ... might need to check if 767 applies to newer tall phones like note 8 */
+@media screen and (min-width: 461px) and (max-width: 767px) {
+
+  body {
+    background-image: none;
+    height: 100vh;
+    font-size: 0.95em;
+  }
+
+  .navbar, .navbar-default, .navbar-fixed-top {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .flex-container2 {
+    padding: 0px;
+    margin-top: -8px;
+    height: 80vh;
+    display: flex;
+  }
+
+  .flex-container2 > * {
+    flex: 1 1 auto;
+  }
+
+  .flex-container3 {
+    display: flex;
+    align-items: center;
+  }
+
+  .home-icon {
+    height: 40vh;
+    border: 8px solid black;
+  }
+
+  .icon-links {
+    color: black;
+  }
+
+}
+
+/* Tablets */
+/* These two are repetitive, how did I end up here?! */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
 
   body {
     background-repeat: no-repeat;
@@ -271,7 +324,7 @@ ul {
 
 }
 
-@media screen and (max-width: 1090px) {
+@media screen and (min-width: 1024px) and (max-width: 1090px) {
 
   body {
     background-repeat: no-repeat;
